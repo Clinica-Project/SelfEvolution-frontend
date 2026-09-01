@@ -1,63 +1,130 @@
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { motion, useReducedMotion } from "framer-motion";
 import { Counter } from "@/components/home/Counter";
 import { metrics } from "@/lib/content/home";
+import { EASE_EXPO } from "@/lib/motion";
+
+const visibleMetrics = metrics.filter((metric) => metric.value > 0);
+
+const rise = {
+  hidden: { y: "108%" },
+  visible: (delay: number) => ({
+    y: "0%",
+    transition: { duration: 0.95, delay, ease: EASE_EXPO },
+  }),
+};
+
+const fade = {
+  hidden: { opacity: 0, y: 12 },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, delay, ease: EASE_EXPO },
+  }),
+};
 
 export function SocialProofSection() {
+  const reduced = useReducedMotion();
+  const enter = reduced
+    ? {}
+    : {
+        initial: "hidden" as const,
+        whileInView: "visible" as const,
+        viewport: { once: true, amount: 0.4 },
+      };
+
   return (
-    <section className="relative overflow-hidden bg-[#F0EAF6] py-28 lg:py-36">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-20 top-10 h-80 w-80 rounded-full bg-brand-primary/[0.07] blur-3xl"
+    <section
+      id="presenca"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-[#1C1916] text-white"
+    >
+      <motion.img
+        src="/hero/05-espaco.jpg"
+        alt="Sala de espera da clínica, com luz natural e um banco de madeira"
+        width={2400}
+        height={1600}
+        className="absolute inset-0 h-full w-full object-cover object-[78%_center]"
+        initial={reduced ? false : { scale: 1.1 }}
+        whileInView={reduced ? undefined : { scale: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1.8, ease: EASE_EXPO }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-page lg:px-8">
-        <Reveal>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-primary">
-            presença
-          </p>
-        </Reveal>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-[#1C1916] from-[8%] via-[#1C1916]/70 via-[32%] to-transparent to-[70%]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-t from-[#1C1916]/50 via-transparent to-[#1C1916]/25"
+      />
 
-        {/* Números + frase de marca como uma composição */}
-        <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-8 lg:items-stretch">
-          <RevealGroup
-            stagger={0.1}
-            className="grid gap-8 border-y border-brand-primary/15 py-12 sm:grid-cols-3 lg:col-span-7 lg:gap-0 lg:divide-x lg:divide-brand-primary/15 lg:border-0 lg:py-0"
+      <motion.div
+        className="relative z-10 flex min-h-[100svh] items-center"
+        {...enter}
+      >
+        <div className="mx-auto w-full max-w-7xl px-page py-28 lg:px-8 lg:py-32">
+          <h2 className="max-w-[11ch] font-display text-[clamp(2.75rem,7vw,5.5rem)] font-bold leading-[0.96] tracking-[-0.045em]">
+            <span className="block overflow-hidden pb-[0.06em]">
+              <motion.span className="block" custom={0.05} variants={reduced ? undefined : rise}>
+                Você não está
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden pb-[0.06em]">
+              <motion.span
+                className="block font-light italic"
+                custom={0.16}
+                variants={reduced ? undefined : rise}
+              >
+                sozinho(a).
+              </motion.span>
+            </span>
+          </h2>
+
+          <motion.p
+            className="mt-8 max-w-sm text-base leading-relaxed text-white/70 lg:text-lg"
+            custom={0.32}
+            variants={reduced ? undefined : fade}
           >
-            {metrics.map(({ value, prefix, suffix, label }, i) => (
-              <RevealItem
-                key={label}
-                className={i === 0 ? "lg:pr-8" : i === 2 ? "lg:pl-8" : "lg:px-8"}
-              >
-                <p className="font-display text-[clamp(3.5rem,7vw,5.5rem)] font-bold leading-none tracking-[-0.04em] text-brand-primary">
-                  <Counter value={value} prefix={prefix} suffix={suffix} duration={1.45} />
-                </p>
-                <p className="mt-4 max-w-[10rem] text-sm leading-snug text-content-secondary">
-                  {label}
-                </p>
-              </RevealItem>
-            ))}
-          </RevealGroup>
+            Unimos psicologia, neuropsicologia, reabilitação e mais para apoiar
+            cada fase da sua jornada.
+          </motion.p>
 
-          <Reveal delay={0.15} className="lg:col-span-5">
-            <figure className="relative flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] bg-surface-card p-8 shadow-[0_20px_50px_-28px_rgba(107,78,145,0.28)] lg:p-10">
-              <span
-                aria-hidden="true"
-                className="font-display text-7xl font-bold leading-none text-brand-primary/15"
-              >
-                “
-              </span>
-              <blockquote className="-mt-6 font-display text-xl font-medium leading-snug tracking-[-0.01em] text-content-primary lg:text-2xl">
-                Na SELF Evolution você não está sozinho(a)! Unimos psicologia,
-                neuropsicologia, reabilitação e mais para apoiar cada fase da
-                sua jornada.
-              </blockquote>
-              <figcaption className="mt-8 text-xs uppercase tracking-[0.14em] text-content-muted">
-                SelfEvolution · essência
-              </figcaption>
-            </figure>
-          </Reveal>
+          {visibleMetrics[0] ? (
+            <div className="mt-16 flex flex-col gap-8 sm:flex-row sm:items-end sm:gap-14">
+              <motion.div custom={0.42} variants={reduced ? undefined : fade}>
+                <p className="font-serif text-[clamp(3.5rem,8vw,6rem)] font-medium leading-none tracking-[-0.05em] [font-optical-sizing:auto]">
+                  <Counter
+                    value={visibleMetrics[0].value}
+                    prefix={visibleMetrics[0].prefix}
+                    suffix={visibleMetrics[0].suffix}
+                    duration={0.9}
+                  />
+                </p>
+                <p className="mt-4 text-sm text-white/55">{visibleMetrics[0].label}</p>
+              </motion.div>
+
+              {visibleMetrics.length > 1 ? (
+                <motion.ul
+                  className="flex flex-col gap-4 pb-1 text-sm leading-snug text-white/60 sm:gap-3"
+                  custom={0.55}
+                  variants={reduced ? undefined : fade}
+                >
+                  {visibleMetrics.slice(1).map((metric) => (
+                    <li key={metric.label}>
+                      <span className="font-serif text-lg text-white/90 [font-optical-sizing:auto]">
+                        {metric.prefix}
+                        {metric.value}
+                        {metric.suffix}
+                      </span>
+                      <span className="ml-2.5">{metric.label}</span>
+                    </li>
+                  ))}
+                </motion.ul>
+              ) : null}
+            </div>
+          ) : null}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

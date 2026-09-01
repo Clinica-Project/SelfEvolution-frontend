@@ -32,31 +32,9 @@ function ScrollToTop() {
 }
 
 function DocumentTitle() {
-  const { pathname } = useLocation();
-
   useEffect(() => {
-    const titles: [RegExp, string][] = [
-      [/^\/$/, "SelfEvolution — clínica interdisciplinar"],
-      [/^\/sobre$/, "Sobre — SelfEvolution"],
-      [/^\/servicos$/, "Serviços — SelfEvolution"],
-      [/^\/diferenciais$/, "Diferenciais — SelfEvolution"],
-      [/^\/login$/, "Área restrita — SelfEvolution"],
-      [/^\/cadastro$/, "Criar conta — SelfEvolution"],
-      [/^\/dashboard$/, "Dashboard — SelfEvolution"],
-      [/^\/consultas\/nova$/, "Agendar consulta — SelfEvolution"],
-      [/^\/consultas\/[^/]+$/, "Detalhe da consulta — SelfEvolution"],
-      [/^\/consultas$/, "Consultas — SelfEvolution"],
-      [/^\/pacientes\/novo$/, "Novo paciente — SelfEvolution"],
-      [/^\/pacientes\/[^/]+\/evolucao$/, "Evolução clínica — SelfEvolution"],
-      [/^\/pacientes\/[^/]+$/, "Paciente — SelfEvolution"],
-      [/^\/pacientes$/, "Pacientes — SelfEvolution"],
-      [/^\/documentos$/, "Documentos — SelfEvolution"],
-      [/^\/ia$/, "IA Clínica — SelfEvolution"],
-      [/^\/usuarios$/, "Usuários — SelfEvolution"],
-    ];
-    const match = titles.find(([pattern]) => pattern.test(pathname));
-    document.title = match?.[1] ?? "SelfEvolution";
-  }, [pathname]);
+    document.title = "SelfEvolution";
+  }, []);
 
   return null;
 }

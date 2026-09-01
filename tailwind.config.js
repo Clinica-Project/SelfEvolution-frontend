@@ -35,6 +35,13 @@ export default {
           muted: "#7A7A7A",
           inverse: "#FFFFFF",
         },
+        presence: {
+          bg: "#FAF8F5",
+          text: "#2B2A28",
+          brand: "#5B4B8A",
+          gold: "#8A7B5C",
+          muted: "#6B6862",
+        },
         border: {
           DEFAULT: "#E8E4DA",
           focus: "#6B4E91",
@@ -49,6 +56,7 @@ export default {
       fontFamily: {
         display: ["var(--font-nunito)", "sans-serif"],
         sans: ["var(--font-inter)", "sans-serif"],
+        serif: ["var(--font-fraunces)", "Georgia", "serif"],
       },
       fontSize: {
         "display-hero": ["clamp(2.5rem, 7vw, 5.5rem)", { lineHeight: "1.03", letterSpacing: "-0.03em" }],
@@ -108,6 +116,10 @@ export default {
           from: { backgroundPosition: "200% 0" },
           to: { backgroundPosition: "-200% 0" },
         },
+        "hero-progress": {
+          from: { transform: "scaleX(0)" },
+          to: { transform: "scaleX(1)" },
+        },
       },
       animation: {
         "float-a": "float-a 22s ease-in-out infinite",
@@ -116,6 +128,7 @@ export default {
         marquee: "marquee 48s linear infinite",
         "scroll-hint": "scroll-hint 2s ease-in-out infinite",
         shimmer: "shimmer 2.2s linear infinite",
+        "hero-progress": "hero-progress 6.5s linear forwards",
       },
     },
   },

@@ -25,6 +25,8 @@ export type InstitucionalIconName =
 export type Passo = {
   titulo: string;
   descricao: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 export type Valor = {
@@ -38,6 +40,8 @@ export type Publico = {
   titulo: string;
   descricao: string;
   icon: InstitucionalIconName;
+  image?: string;
+  imageAlt?: string;
 };
 
 export type ServicoDetalhado = {
@@ -70,6 +74,8 @@ export type Cta = {
   href: string;
   secondaryLabel: string;
   secondaryHref: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 const ctaPadrao: Cta = {
@@ -96,6 +102,10 @@ export const sobreContent = {
     subtitulo:
       "Somos uma clínica interdisciplinar dedicada a acompanhar pessoas e famílias em todas as fases da vida — com escuta, ciência e presença em cada etapa.",
   } satisfies Hero,
+  abertura: {
+    image: "/hero/19-espaco.jpg",
+    imageAlt: "Sala da clínica com poltronas, luz da janela e um espaço em silêncio",
+  },
   historia: {
     eyebrow: "por que existimos",
     titulo: "Uma clínica que conversa entre si",
@@ -103,6 +113,20 @@ export const sobreContent = {
       "Quem busca cuidado para si ou para a família costuma encontrar um caminho fragmentado: cada especialidade em um lugar, profissionais que não se falam e informações que se perdem entre consultas.",
       "A SelfEvolution nasceu para mudar isso. Reunimos psicologia, avaliação neuropsicológica, reabilitação cognitiva, psicopedagogia, terapia ABA, fonoaudiologia e nutrição em uma mesma equipe — que discute os casos em conjunto e constrói um plano de cuidado único para cada pessoa.",
       "Acreditamos que evoluir é um processo compartilhado: entre especialidades, entre profissional e paciente, e entre a clínica e a família.",
+    ],
+    fotos: [
+      {
+        src: "/hero/01-escuta.jpg",
+        alt: "Sessão de escuta com caderno e luz natural",
+      },
+      {
+        src: "/hero/02-equipe.jpg",
+        alt: "Equipe interdisciplinar reunida em consulta na clínica",
+      },
+      {
+        src: "/hero/17-acompanhar.jpg",
+        alt: "Família acompanhada no corredor da clínica",
+      },
     ],
   },
   missaoVisao: [
@@ -128,30 +152,40 @@ export const sobreContent = {
         descricao:
           "Desenvolvimento, comportamento, linguagem e aprendizagem — com orientação próxima à família.",
         icon: "baby",
+        image: "/hero/03-infancia.jpg",
+        imageAlt: "Acompanhamento infantil com blocos de madeira",
       },
       {
         titulo: "Adolescentes",
         descricao:
           "Emoções, identidade, vida escolar e social em uma fase de muitas transformações.",
         icon: "school",
+        image: "/hero/04-online.jpg",
+        imageAlt: "Atendimento em um escritório calmo, com luz baixa",
       },
       {
         titulo: "Adultos",
         descricao:
           "Saúde emocional, relações, trabalho e qualidade de vida no dia a dia.",
         icon: "user-round",
+        image: "/hero/07-psicologia.jpg",
+        imageAlt: "Espaço de psicologia com poltrona e luz natural",
       },
       {
         titulo: "Idosos",
         descricao:
           "Memória, autonomia e bem-estar, com avaliação e estimulação cognitiva.",
         icon: "hand-heart",
+        image: "/hero/08-neuro.jpg",
+        imageAlt: "Sala de avaliação neuropsicológica",
       },
       {
         titulo: "Famílias",
         descricao:
           "Orientação para quem acompanha de perto — porque cuidar de quem cuida também importa.",
         icon: "home",
+        image: "/hero/17-acompanhar.jpg",
+        imageAlt: "Família acompanhada no corredor da clínica",
       },
     ] satisfies Publico[],
   },
@@ -165,21 +199,29 @@ export const sobreContent = {
         titulo: "Primeiro contato",
         descricao:
           "Você fala com a nossa equipe, conta o que está buscando e tira dúvidas sobre formatos e especialidades.",
+        image: "/hero/16-chegar.jpg",
+        imageAlt: "Entrada da clínica, o primeiro passo de quem chega",
       },
       {
         titulo: "Acolhimento e avaliação",
         descricao:
           "Um profissional realiza a escuta inicial e, quando indicado, avaliações específicas para entender o quadro como um todo.",
+        image: "/hero/01-escuta.jpg",
+        imageAlt: "Sessão de escuta com caderno e luz natural",
       },
       {
         titulo: "Plano de cuidado",
         descricao:
           "A equipe define em conjunto as especialidades e a frequência indicadas — e explica tudo em linguagem clara.",
+        image: "/hero/02-equipe.jpg",
+        imageAlt: "Equipe interdisciplinar reunida para construir o plano",
       },
       {
         titulo: "Acompanhamento contínuo",
         descricao:
           "O plano é revisitado ao longo do tempo, com evolução registrada e comunicação constante com você e sua família.",
+        image: "/hero/18-evoluir.jpg",
+        imageAlt: "Corredor da clínica, o cuidado que segue no tempo",
       },
     ] satisfies Passo[],
   },
@@ -229,6 +271,10 @@ export const sobreContent = {
     titulo: "Vamos conversar?",
     descricao:
       "Conte para a nossa equipe o que você está buscando. Vamos indicar o melhor caminho de cuidado para você ou para a sua família.",
+    label: "Fale com a clínica",
+    href: "mailto:contato@selfevolution.com.br",
+    image: "/hero/13-cta.jpg",
+    imageAlt: "Canto da clínica com poltrona, lamparina e luz baixa",
   } satisfies Cta,
 };
 

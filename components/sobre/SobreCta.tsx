@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Magnetic } from "@/components/motion/Magnetic";
 import { EASE_EXPO } from "@/lib/motion";
+import { sobreContent } from "@/lib/content/institucional";
 
 const rise = {
   hidden: { y: "108%" },
@@ -20,7 +21,8 @@ const fade = {
   }),
 };
 
-export function CtaSection() {
+export function SobreCta() {
+  const { cta } = sobreContent;
   const reduced = useReducedMotion();
   const enter = reduced
     ? {}
@@ -31,30 +33,21 @@ export function CtaSection() {
       };
 
   return (
-    <section
-      id="contato"
-      className="relative overflow-hidden bg-brand-primary text-white"
-    >
+    <section className="relative overflow-hidden bg-brand-primary text-white">
       <div className="relative mx-auto max-w-7xl lg:min-h-[min(36rem,82svh)]">
         <motion.div
           className="flex flex-col justify-center px-page py-20 lg:max-w-[52%] lg:px-8 lg:py-28"
           {...enter}
         >
-          <h2 className="max-w-[12ch] font-display text-[clamp(2.6rem,6.4vw,5.25rem)] font-bold leading-[0.96] tracking-[-0.04em]">
+          <h2 className="max-w-[10ch] font-display text-[clamp(2.6rem,6.4vw,5.25rem)] font-bold leading-[0.96] tracking-[-0.04em]">
             <span className="block overflow-hidden pb-[0.05em]">
               <motion.span className="block" custom={0.04} variants={reduced ? undefined : rise}>
-                Está pronto
+                Vamos
               </motion.span>
             </span>
             <span className="block overflow-hidden pb-[0.05em]">
               <motion.span className="block" custom={0.14} variants={reduced ? undefined : rise}>
-                para{" "}
-                <span className="font-light italic">começar</span>
-              </motion.span>
-            </span>
-            <span className="block overflow-hidden pb-[0.05em]">
-              <motion.span className="block" custom={0.24} variants={reduced ? undefined : rise}>
-                uma nova etapa?
+                conversar?
               </motion.span>
             </span>
           </h2>
@@ -64,8 +57,7 @@ export function CtaSection() {
             custom={0.38}
             variants={reduced ? undefined : fade}
           >
-            Conte a sua história. A equipe responde com escuta, clareza e o
-            próximo passo clínico.
+            {cta.descricao}
           </motion.p>
 
           <motion.div
@@ -78,7 +70,7 @@ export function CtaSection() {
                 href="mailto:contato@selfevolution.com.br"
                 className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4 text-[15px] font-semibold text-brand-primary transition-transform duration-300 ease-expo hover:-translate-y-0.5 active:scale-[0.98]"
               >
-                Fale com a clínica
+                {cta.label}
                 <ArrowRight
                   className="h-4 w-4 transition-transform duration-300 ease-expo group-hover:translate-x-0.5"
                   aria-hidden="true"
@@ -97,8 +89,8 @@ export function CtaSection() {
 
       <div className="relative h-56 sm:h-72 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[46%]">
         <img
-          src="/hero/13-cta.jpg"
-          alt="Canto da clínica com poltrona, lamparina e luz baixa"
+          src={cta.image ?? "/hero/13-cta.jpg"}
+          alt={cta.imageAlt ?? ""}
           width={2400}
           height={1792}
           className="absolute inset-0 h-full w-full object-cover object-[58%_center]"

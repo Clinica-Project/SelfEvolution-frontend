@@ -1,142 +1,162 @@
-import { ArrowUpRight } from "lucide-react";
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
-import { HomeIcon } from "@/components/home/HomeIcon";
+import { useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 import { ServicesMarquee } from "@/components/home/ServicesMarquee";
+import { Link } from "@/lib/link";
 import { services } from "@/lib/content/home";
+import { EASE_EXPO } from "@/lib/motion";
 import { cn } from "@/lib/utils/cn";
 
-/** Layout bento: featured grande + cards com escalas variadas. */
-const SPAN: Record<number, string> = {
-  0: "sm:col-span-2 lg:col-span-4 lg:row-span-2", // featured
-  1: "lg:col-span-4",
-  2: "lg:col-span-4",
-  3: "lg:col-span-4",
-  4: "lg:col-span-4",
-  5: "lg:col-span-4",
-  6: "lg:col-span-4",
-  7: "lg:col-span-4", // CTA
-};
-
 export function ServicesSection() {
+  const reduced = useReducedMotion();
+  const [active, setActive] = useState(0);
+  const current = services[active] ?? services[0];
+  const n = String(active + 1).padStart(2, "0");
+
   return (
-    <section id="servicos" className="relative bg-[#F7F2FB] py-28 lg:py-36">
+    <section id="servicos" className="relative bg-white py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-page lg:px-8">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <Reveal>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-primary">
-              nossas especialidades
-            </p>
-            <h2 className="mt-4 max-w-lg font-display text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.1] tracking-[-0.03em] text-content-primary">
-              Cuidado integrado{" "}
-              <span className="font-light text-brand-primary">em cada área</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="max-w-sm text-base leading-relaxed text-content-secondary">
-              Equipe multidisciplinar para acompanhar mente, comportamento,
-              aprendizagem e desenvolvimento — em um só lugar.
-            </p>
-          </Reveal>
-        </div>
+        <Reveal>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-primary">
+            nossas especialidades
+          </p>
+          <h2 className="mt-4 max-w-lg font-display text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.1] tracking-[-0.03em] text-content-primary">
+            Cuidado integrado{" "}
+            <span className="font-light text-brand-primary">em cada área</span>
+          </h2>
+        </Reveal>
       </div>
 
-      <Reveal delay={0.08} className="mt-12">
+      <Reveal delay={0.08} className="mt-10">
         <ServicesMarquee />
       </Reveal>
 
-      <div className="mx-auto mt-14 max-w-7xl px-page lg:px-8">
-        <RevealGroup
-          stagger={0.07}
-          className="grid auto-rows-[minmax(13rem,auto)] gap-4 sm:grid-cols-2 lg:grid-cols-12"
-        >
-          {services.map(({ title, description, icon }, index) => {
-            const n = String(index + 1).padStart(2, "0");
-            const featured = index === 0;
+      <div className="mx-auto mt-6 max-w-7xl px-page lg:mt-10 lg:px-8">
+        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-16">
+          <ol className="lg:col-span-7">
+            {services.map(({ title, description }, index) => {
+              const num = String(index + 1).padStart(2, "0");
+              const selected = index === active;
 
-            return (
-              <RevealItem key={title} className={cn(SPAN[index] ?? "lg:col-span-4")}>
-                <article
-                  className={cn(
-                    "group relative flex h-full flex-col overflow-hidden transition-all duration-500 ease-expo hover:-translate-y-1.5",
-                    featured
-                      ? "min-h-[22rem] justify-between rounded-[1.75rem] bg-brand-primary p-8 text-content-inverse shadow-[0_24px_60px_-28px_rgba(107,78,145,0.55)] lg:p-10"
-                      : "rounded-[1.5rem] border border-brand-primary/8 bg-surface-card p-7 hover:border-brand-primary/20 hover:shadow-card-hover"
-                  )}
-                >
-                  <span
-                    aria-hidden="true"
+              return (
+                <li key={title} className="border-b border-brand-primary/10 first:border-t">
+                  <button
+                    type="button"
+                    aria-pressed={selected}
+                    onMouseEnter={() => setActive(index)}
+                    onFocus={() => setActive(index)}
+                    onClick={() => setActive(index)}
                     className={cn(
-                      "pointer-events-none absolute font-display font-bold leading-none",
-                      featured
-                        ? "-right-6 -top-8 text-[9rem] text-white/[0.08]"
-                        : "-right-2 top-2 text-6xl text-brand-primary/[0.06] transition-colors duration-500 group-hover:text-brand-primary/[0.12]"
+                      "group flex w-full items-baseline gap-5 py-5 text-left transition-colors duration-300 ease-expo lg:gap-8 lg:py-6",
+                      selected ? "text-content-primary" : "text-content-muted hover:text-content-primary"
                     )}
+                  >
+                    <span
+                      className={cn(
+                        "shrink-0 font-display text-sm font-semibold tabular-nums tracking-[0.12em] transition-colors duration-300",
+                        selected ? "text-brand-primary" : "text-content-muted group-hover:text-brand-primary"
+                      )}
+                    >
+                      {num}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span
+                        className={cn(
+                          "block font-display text-xl font-semibold tracking-[-0.02em] transition-transform duration-500 ease-expo lg:text-2xl",
+                          selected ? "lg:translate-x-2" : "lg:group-hover:translate-x-2"
+                        )}
+                      >
+                        {title}
+                      </span>
+                      <span
+                        className={cn(
+                          "mt-1 block max-w-md text-sm leading-relaxed transition-opacity duration-300",
+                          selected
+                            ? "text-content-secondary opacity-100"
+                            : "text-content-muted opacity-80 lg:opacity-0 lg:group-hover:opacity-80 lg:group-focus:opacity-80"
+                        )}
+                      >
+                        {description}
+                      </span>
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+
+          <div className="hidden lg:sticky lg:top-28 lg:col-span-5 lg:block">
+            <div className="relative isolate min-h-[28rem] overflow-hidden text-content-inverse">
+              <AnimatePresence initial={false} mode="sync">
+                <motion.img
+                  key={current.image + current.imagePosition}
+                  src={current.image}
+                  alt=""
+                  width={1122}
+                  height={1402}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  style={{ objectPosition: current.imagePosition }}
+                  initial={reduced ? { opacity: 1 } : { opacity: 0, scale: 1.04 }}
+                  animate={{ opacity: 1, scale: reduced ? 1 : 1.02 }}
+                  exit={{ opacity: 0 }}
+                  transition={{
+                    opacity: { duration: reduced ? 0.2 : 0.7, ease: EASE_EXPO },
+                    scale: { duration: reduced ? 0 : 6.5, ease: "linear" },
+                  }}
+                />
+              </AnimatePresence>
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/10"
+              />
+              <div className="relative flex min-h-[28rem] flex-col justify-between p-9 lg:p-10">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.p
+                    key={n}
+                    aria-hidden="true"
+                    initial={reduced ? false : { opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={reduced ? undefined : { opacity: 0, y: -8 }}
+                    transition={{ duration: reduced ? 0.15 : 0.45, ease: EASE_EXPO }}
+                    className="font-display text-[7rem] font-bold leading-none tracking-[-0.06em] text-white/25"
                   >
                     {n}
-                  </span>
-
-                  <span
-                    className={cn(
-                      "relative flex items-center justify-center transition-transform duration-500 ease-expo group-hover:scale-105",
-                      featured
-                        ? "h-14 w-14 rounded-2xl bg-white/15 backdrop-blur-sm"
-                        : "h-11 w-11 rounded-xl bg-brand-primary/10 text-brand-primary group-hover:scale-110"
-                    )}
+                  </motion.p>
+                </AnimatePresence>
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={current.title}
+                    initial={reduced ? false : { opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={reduced ? undefined : { opacity: 0, y: -8 }}
+                    transition={{ duration: reduced ? 0.15 : 0.45, ease: EASE_EXPO }}
                   >
-                    <HomeIcon name={icon} className={featured ? "h-6 w-6" : "h-5 w-5"} />
-                  </span>
-
-                  <div className={cn("relative", featured ? "mt-auto pt-16" : "mt-8")}>
-                    <h3
-                      className={cn(
-                        "font-display font-semibold tracking-[-0.01em]",
-                        featured
-                          ? "text-3xl font-bold lg:text-4xl"
-                          : "text-xl text-content-primary"
-                      )}
-                    >
-                      {title}
+                    <h3 className="font-display text-3xl font-bold tracking-[-0.03em]">
+                      {current.title}
                     </h3>
-                    <p
-                      className={cn(
-                        "mt-3 leading-relaxed",
-                        featured
-                          ? "max-w-sm text-base text-white/80"
-                          : "text-sm text-content-secondary"
-                      )}
-                    >
-                      {description}
+                    <p className="mt-3 max-w-sm text-base leading-relaxed text-white/85">
+                      {current.description}
                     </p>
-                    {!featured && (
-                      <span
-                        aria-hidden="true"
-                        className="mt-6 block h-px w-10 origin-left bg-brand-primary/30 transition-transform duration-500 ease-expo group-hover:scale-x-[2.2]"
-                      />
-                    )}
-                  </div>
-                </article>
-              </RevealItem>
-            );
-          })}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          <RevealItem className={SPAN[7]}>
-            <a
-              href="#contato"
-              className="group flex h-full min-h-[13rem] flex-col justify-between rounded-[1.5rem] border border-dashed border-brand-primary/30 bg-transparent p-7 transition-all duration-500 ease-expo hover:-translate-y-1.5 hover:border-brand-primary hover:bg-brand-primary/[0.04]"
-            >
-              <p className="font-display text-xl font-semibold text-content-primary">
-                Não sabe por onde começar?
-              </p>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary">
-                Fale com a clínica
-                <ArrowUpRight
-                  className="h-4 w-4 transition-transform duration-300 ease-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  aria-hidden="true"
-                />
-              </span>
-            </a>
-          </RevealItem>
-        </RevealGroup>
+        <Reveal delay={0.08} className="mt-12">
+          <Link
+            href="/servicos"
+            className="group inline-flex items-center gap-2.5 text-[15px] font-semibold text-brand-primary transition-colors hover:text-brand-primary-dark"
+          >
+            Ver todas as especialidades
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-300 ease-expo group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

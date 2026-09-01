@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useMounted } from "@/hooks/useMounted";
 import { getLenisInstance } from "@/lib/lenis-instance";
 import { publicNav } from "@/lib/navigation/public-nav";
+import { Logo } from "@/components/ui/Logo";
 import { EASE_EXPO, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils/cn";
 
@@ -61,16 +62,11 @@ export function PublicHeader({ className }: { className?: string }) {
           className={cn(
             "pointer-events-auto mx-auto flex max-w-[68rem] items-center justify-between gap-2 rounded-full border transition-[padding,box-shadow,background-color,border-color] duration-500 ease-expo",
             scrolled
-              ? "border-brand-primary/10 bg-surface-card/95 py-1.5 pl-5 pr-1.5 shadow-[0_12px_40px_-18px_rgba(107,78,145,0.35)] backdrop-blur-2xl"
-              : "border-white/50 bg-white/55 py-2 pl-6 pr-2 shadow-[0_8px_32px_-16px_rgba(107,78,145,0.2)] backdrop-blur-xl"
+              ? "border-brand-primary/10 bg-surface-card/95 py-1.5 pl-4 pr-1.5 shadow-[0_12px_40px_-18px_rgba(107,78,145,0.35)] backdrop-blur-2xl sm:pl-5"
+              : "border-white/40 bg-white/70 py-2 pl-4 pr-2 shadow-[0_8px_32px_-16px_rgba(107,78,145,0.2)] backdrop-blur-xl sm:pl-5"
           )}
         >
-          <Link
-            href="/"
-            className="shrink-0 font-display text-[15px] font-semibold lowercase tracking-[-0.02em] text-brand-primary sm:text-[17px]"
-          >
-            selfevolution
-          </Link>
+          <Logo size="sm" />
 
           <nav
             className="relative hidden items-center gap-0.5 lg:flex"
@@ -146,9 +142,7 @@ export function PublicHeader({ className }: { className?: string }) {
             transition={{ duration: 0.4, ease: EASE_EXPO }}
           >
             <div className="flex items-center justify-between">
-              <span className="font-display text-base font-semibold lowercase tracking-tight text-brand-primary">
-                selfevolution
-              </span>
+              <Logo size="md" />
               <button
                 type="button"
                 onClick={() => setMenuOpen(false)}

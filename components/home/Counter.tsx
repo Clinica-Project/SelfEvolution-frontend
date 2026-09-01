@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { animate, useInView, useReducedMotion } from "framer-motion";
+import { EASE_EXPO } from "@/lib/motion";
 
 type CounterProps = {
   value: number;
@@ -12,12 +13,12 @@ export function Counter({
   value,
   prefix,
   suffix,
-  duration = 1.2,
+  duration = 0.9,
 }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-15% 0px" });
   const reduced = useReducedMotion();
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState<number | null>(null);
 
   useEffect(() => {
     if (!inView) return;
@@ -29,7 +30,7 @@ export function Counter({
 
     const controls = animate(0, value, {
       duration,
-      ease: "easeOut",
+      ease: EASE_EXPO,
       onUpdate: (latest) => setDisplay(Math.round(latest)),
     });
 
@@ -38,9 +39,19 @@ export function Counter({
 
   return (
     <span ref={ref} className="tabular-nums">
-      {prefix}
-      {display}
-      {suffix}
+      {display === null ? (
+        <span className="invisible">
+          {prefix}
+          {value}
+          {suffix}
+        </span>
+      ) : (
+        <>
+          {prefix}
+          {display}
+          {suffix}
+        </>
+      )}
     </span>
   );
 }

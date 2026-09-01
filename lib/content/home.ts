@@ -14,6 +14,8 @@ export type Service = {
   title: string;
   description: string;
   icon: HomeIconName;
+  image: string;
+  imagePosition: string;
 };
 
 export const services: Service[] = [
@@ -22,38 +24,52 @@ export const services: Service[] = [
     description:
       "Acompanhamento emocional e comportamental em todas as fases da vida.",
     icon: "brain",
+    image: "/hero/07-psicologia.jpg",
+    imagePosition: "center",
   },
   {
     title: "Avaliação neuropsicológica",
     description:
       "Investigação cognitiva com rigor clínico e devolutiva acolhedora.",
     icon: "activity",
+    image: "/hero/08-neuro.jpg",
+    imagePosition: "center",
   },
   {
     title: "Reabilitação cognitiva",
     description: "Estímulo de funções cognitivas com plano individualizado.",
     icon: "puzzle",
+    image: "/hero/09-reabilitacao.jpg",
+    imagePosition: "center",
   },
   {
     title: "Psicopedagogia",
     description: "Apoio à aprendizagem e ao desenvolvimento escolar.",
     icon: "graduation-cap",
+    image: "/hero/10-psicopedagogia.jpg",
+    imagePosition: "center",
   },
   {
     title: "Terapia ABA",
     description:
       "Intervenção baseada em evidências para habilidades do dia a dia.",
     icon: "blocks",
+    image: "/hero/11-aba.jpg",
+    imagePosition: "center",
   },
   {
     title: "Fonoaudiologia",
     description: "Cuidado com comunicação, linguagem, voz e deglutição.",
     icon: "audio-lines",
+    image: "/hero/14-fono.jpg",
+    imagePosition: "center",
   },
   {
     title: "Nutrição",
     description: "Orientação alimentar integrada ao cuidado interdisciplinar.",
     icon: "salad",
+    image: "/hero/15-nutricao.jpg",
+    imagePosition: "center",
   },
 ];
 
@@ -97,7 +113,7 @@ export const metrics: Metric[] = [
   { value: 100, suffix: "%", label: "equipe registrada" },
 ];
 
-/** Termos exibidos no marquee acima do grid de serviços. */
+/** Termos exibidos no marquee da lista de especialidades. */
 export const marqueeTerms = [
   "Psicologia",
   "Neuropsicologia",
