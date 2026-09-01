@@ -87,7 +87,7 @@ export function SobrePassos() {
       aria-label={jornada.titulo}
     >
       <div className="relative flex min-h-[100svh] flex-col lg:grid lg:grid-cols-[minmax(0,42%)_minmax(0,58%)]">
-        <div
+        <motion.div
           className="relative order-1 h-[48svh] touch-pan-x lg:order-2 lg:h-auto lg:min-h-[100svh]"
           onPanEnd={(_, info) => {
             if (Math.abs(info.offset.x) < 56) return;
@@ -152,7 +152,7 @@ export function SobrePassos() {
               );
             })}
           </div>
-        </div>
+        </motion.div>
 
         <div className="relative order-2 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-page py-10 lg:order-1 lg:min-h-[100svh] lg:px-8 lg:py-28">
           <div className="max-w-md lg:max-w-[28rem]">

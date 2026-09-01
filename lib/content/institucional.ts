@@ -92,27 +92,29 @@ const ctaPadrao: Cta = {
 
 export const sobreContent = {
   meta: {
-    title: "Sobre a SelfEvolution — clínica interdisciplinar de desenvolvimento humano",
+    title: "Sobre a Self Evolution — clínica interdisciplinar",
     description:
-      "Conheça a história, a missão e o jeito de cuidar da SelfEvolution: uma clínica interdisciplinar que une psicologia, neuropsicologia, psicopedagogia, ABA, fonoaudiologia e nutrição em um só lugar.",
+      "Clínica interdisciplinar em Guarulhos e São Paulo, com atendimento online em todo o Brasil. Psicologia, ABA, neuropsicologia e integração da saúde física e mental.",
   },
   hero: {
-    eyebrow: "sobre a selfevolution",
-    titulo: "Cuidar é um processo compartilhado",
+    eyebrow: "clínica interdisciplinar",
+    titulo: "Cuidado humanizado e inclusivo",
+    tituloLinhas: ["Cuidado", "humanizado", "e inclusivo"],
     subtitulo:
-      "Somos uma clínica interdisciplinar dedicada a acompanhar pessoas e famílias em todas as fases da vida — com escuta, ciência e presença em cada etapa.",
-  } satisfies Hero,
+      "Nossa clínica multidisciplinar promove a integração da saúde física e mental, oferecendo um cuidado abrangente, humanizado e personalizado para o bem-estar completo de cada paciente.",
+  } satisfies Hero & { tituloLinhas: [string, string, string] },
   abertura: {
     image: "/hero/19-espaco.jpg",
     imageAlt: "Sala da clínica com poltronas, luz da janela e um espaço em silêncio",
   },
   historia: {
-    eyebrow: "por que existimos",
-    titulo: "Uma clínica que conversa entre si",
+    eyebrow: "sobre nós",
+    titulo: "Olhar para a pessoa como um todo",
+    tituloLinhas: ["Olhar para", "a pessoa", "como um todo"],
     paragrafos: [
-      "Quem busca cuidado para si ou para a família costuma encontrar um caminho fragmentado: cada especialidade em um lugar, profissionais que não se falam e informações que se perdem entre consultas.",
-      "A SelfEvolution nasceu para mudar isso. Reunimos psicologia, avaliação neuropsicológica, reabilitação cognitiva, psicopedagogia, terapia ABA, fonoaudiologia e nutrição em uma mesma equipe — que discute os casos em conjunto e constrói um plano de cuidado único para cada pessoa.",
-      "Acreditamos que evoluir é um processo compartilhado: entre especialidades, entre profissional e paciente, e entre a clínica e a família.",
+      "Cuidado em saúde não é sobre atender uma queixa isolada. É sobre olhar para a pessoa como um todo.",
+      "Somos uma clínica multidisciplinar dedicada à integração da saúde física e mental, com foco em um cuidado humanizado, acolhedor e inclusivo. Reunimos psicologia, neuropsicologia, psicopedagogia, ABA, fonoaudiologia, nutrição, psiquiatria, medicina da família e terapias integrativas — da infância ao envelhecimento.",
+      "Atendemos presencialmente em Guarulhos e em São Paulo, com consultórios de fácil acesso, e online para todo o Brasil. Também acompanhamos empresas que buscam saúde mental, inclusão e bem-estar no trabalho.",
     ],
     fotos: [
       {
@@ -133,24 +135,24 @@ export const sobreContent = {
     {
       titulo: "Missão",
       descricao:
-        "Oferecer cuidado interdisciplinar acessível e humanizado, unindo rigor clínico e acolhimento em cada etapa do desenvolvimento.",
+        "Promover saúde e bem-estar de forma integrada, humanizada e inclusiva, oferecendo cuidado multidisciplinar para indivíduos e empresas, com foco na saúde física, emocional e comportamental.",
     },
     {
       titulo: "Visão",
       descricao:
-        "Ser referência em acompanhamento integrado — um espaço em que pacientes, famílias e profissionais evoluem juntos, com clareza e confiança.",
+        "Humanização, acolhimento, escuta ativa, inclusão, respeito à diversidade, ética e compromisso com o bem-estar integral de pessoas e empresas.",
     },
   ],
   paraQuem: {
     eyebrow: "para quem é",
     titulo: "Cuidado em todas as fases da vida",
     descricao:
-      "Cada fase traz suas próprias perguntas. Nossa equipe acompanha cada uma delas com a especialidade certa.",
+      "Acompanhamento interdisciplinar, humano e personalizado — da infância ao envelhecimento, e também no ambiente de trabalho.",
     publicos: [
       {
         titulo: "Crianças",
         descricao:
-          "Desenvolvimento, comportamento, linguagem e aprendizagem — com orientação próxima à família.",
+          "Desenvolvimento, comportamento, linguagem e aprendizagem, com a família por perto.",
         icon: "baby",
         image: "/hero/03-infancia.jpg",
         imageAlt: "Acompanhamento infantil com blocos de madeira",
@@ -158,7 +160,7 @@ export const sobreContent = {
       {
         titulo: "Adolescentes",
         descricao:
-          "Emoções, identidade, vida escolar e social em uma fase de muitas transformações.",
+          "Espaço para ser compreendido: menos julgamento, mais diálogo, escuta e cuidado emocional.",
         icon: "school",
         image: "/hero/04-online.jpg",
         imageAlt: "Atendimento em um escritório calmo, com luz baixa",
@@ -166,7 +168,7 @@ export const sobreContent = {
       {
         titulo: "Adultos",
         descricao:
-          "Saúde emocional, relações, trabalho e qualidade de vida no dia a dia.",
+          "Saúde emocional, relações e equilíbrio no dia a dia — presencial ou online, em todo o Brasil.",
         icon: "user-round",
         image: "/hero/07-psicologia.jpg",
         imageAlt: "Espaço de psicologia com poltrona e luz natural",
@@ -174,52 +176,52 @@ export const sobreContent = {
       {
         titulo: "Idosos",
         descricao:
-          "Memória, autonomia e bem-estar, com avaliação e estimulação cognitiva.",
+          "Avaliação neuropsicológica, estimulação cognitiva e, quando faz sentido, atendimento domiciliar.",
         icon: "hand-heart",
         image: "/hero/08-neuro.jpg",
         imageAlt: "Sala de avaliação neuropsicológica",
       },
       {
-        titulo: "Famílias",
+        titulo: "Empresas",
         descricao:
-          "Orientação para quem acompanha de perto — porque cuidar de quem cuida também importa.",
-        icon: "home",
-        image: "/hero/17-acompanhar.jpg",
-        imageAlt: "Família acompanhada no corredor da clínica",
+          "Bem-estar corporativo, inclusão e saúde mental no trabalho — espaços mais conscientes e acessíveis.",
+        icon: "users",
+        image: "/hero/02-equipe.jpg",
+        imageAlt: "Equipe reunida em um espaço de trabalho da clínica",
       },
     ] satisfies Publico[],
   },
   jornada: {
     eyebrow: "como funciona",
-    titulo: "Do primeiro contato ao acompanhamento",
+    titulo: "Saúde mental integrativa",
     descricao:
-      "Um caminho claro, sem burocracia desnecessária — você sabe o que esperar em cada etapa.",
+      "Unimos diferentes áreas da saúde para compreender cada indivíduo de forma ampla, com equilíbrio emocional, físico e comportamental.",
     passos: [
       {
-        titulo: "Primeiro contato",
+        titulo: "Escuta ativa",
         descricao:
-          "Você fala com a nossa equipe, conta o que está buscando e tira dúvidas sobre formatos e especialidades.",
-        image: "/hero/16-chegar.jpg",
-        imageAlt: "Entrada da clínica, o primeiro passo de quem chega",
-      },
-      {
-        titulo: "Acolhimento e avaliação",
-        descricao:
-          "Um profissional realiza a escuta inicial e, quando indicado, avaliações específicas para entender o quadro como um todo.",
+          "Valorizamos a escuta ativa, o respeito às individualidades e a construção de um espaço seguro, acolhedor e inclusivo para cada pessoa.",
         image: "/hero/01-escuta.jpg",
         imageAlt: "Sessão de escuta com caderno e luz natural",
       },
       {
-        titulo: "Plano de cuidado",
+        titulo: "Cuidado integral",
         descricao:
-          "A equipe define em conjunto as especialidades e a frequência indicadas — e explica tudo em linguagem clara.",
+          "Unimos psicologia, neuropsicologia, ABA, fonoaudiologia, nutrição e outras especialidades para olhar a pessoa como um todo.",
         image: "/hero/02-equipe.jpg",
         imageAlt: "Equipe interdisciplinar reunida para construir o plano",
       },
       {
+        titulo: "Plano personalizado",
+        descricao:
+          "Cada plano de cuidado respeita história, rotina e necessidades individuais — para pessoas e também para empresas.",
+        image: "/hero/16-chegar.jpg",
+        imageAlt: "Entrada da clínica, o primeiro passo de quem chega",
+      },
+      {
         titulo: "Acompanhamento contínuo",
         descricao:
-          "O plano é revisitado ao longo do tempo, com evolução registrada e comunicação constante com você e sua família.",
+          "Trabalhamos o cuidado contínuo da saúde mental, incentivando hábitos saudáveis, equilíbrio emocional e desenvolvimento pessoal no dia a dia.",
         image: "/hero/18-evoluir.jpg",
         imageAlt: "Corredor da clínica, o cuidado que segue no tempo",
       },
@@ -230,49 +232,62 @@ export const sobreContent = {
     titulo: "O que guia cada atendimento",
     valores: [
       {
-        titulo: "Acolhimento",
+        titulo: "Humanização",
         descricao:
-          "Cada história é recebida sem julgamento, com escuta ativa e respeito ao tempo de cada pessoa.",
+          "Cuidado humanizado, acolhedor e inclusivo — com atenção especial à diversidade e às necessidades de cada pessoa.",
         icon: "heart-handshake",
         accent: "text-brand-accent-coral bg-brand-accent-coral/10",
       },
       {
-        titulo: "Ciência",
+        titulo: "Acolhimento",
         descricao:
-          "Prática baseada em evidências, com avaliação criteriosa e métodos reconhecidos em cada especialidade.",
-        icon: "lightbulb",
+          "Um espaço seguro para histórias, identidades e contextos individuais, da clínica ao ambiente de trabalho.",
+        icon: "hand-heart",
         accent: "text-brand-secondary bg-brand-secondary/10",
       },
       {
-        titulo: "Clareza",
+        titulo: "Escuta ativa",
         descricao:
-          "Linguagem simples, devolutivas compreensíveis e combinados transparentes — sem jargão desnecessário.",
+          "Menos julgamento, mais curiosidade. Escuta que respeita o tempo, os limites e a singularidade de cada um.",
         icon: "compass",
         accent: "text-brand-accent-teal bg-brand-accent-teal/15",
       },
       {
-        titulo: "Colaboração",
+        titulo: "Inclusão",
         descricao:
-          "Especialidades que conversam entre si e incluem a família como parte ativa do cuidado.",
+          "Cuidado respeitoso para pessoas LGBTQIAPN+, questões de gênero e raça, e acolhimento de pessoas com deficiência.",
         icon: "users",
         accent: "text-brand-primary bg-brand-primary/10",
       },
       {
         titulo: "Ética",
         descricao:
-          "Equipe registrada nos conselhos profissionais, com sigilo e responsabilidade em cada decisão.",
+          "Compromisso com o bem-estar integral de pessoas e empresas, com respeito à diversidade em cada atendimento.",
         icon: "shield-check",
         accent: "text-brand-primary bg-brand-primary/10",
       },
     ] satisfies Valor[],
   },
+  contato: {
+    instagram: "https://www.instagram.com/selfevolution_clinica/",
+    instagramHandle: "@selfevolution_clinica",
+    whatsapp: "https://wa.me/5511976854141",
+    whatsappLabel: "(11) 97685-4141",
+    whatsappAlt: "(11) 96012-2082",
+    unidades: [
+      "São Paulo — Rua Harmonia, 1323, loja 02, Vila Madalena",
+      "Guarulhos — R. Abraham Lincoln, 292, Jardim Guarulhos",
+    ],
+  },
   cta: {
     ...ctaPadrao,
     titulo: "Vamos conversar?",
     descricao:
-      "Conte para a nossa equipe o que você está buscando. Vamos indicar o melhor caminho de cuidado para você ou para a sua família.",
-    label: "Fale com a clínica",
-    href: "mailto:contato@selfevolution.com.br",
+      "Presencial em Guarulhos e São Paulo, online para todo o Brasil. Fale com a equipe pelo WhatsApp.",
+    label: "WhatsApp da clínica",
+    href: "https://wa.me/5511976854141",
+    secondaryLabel: "@selfevolution_clinica",
+    secondaryHref: "https://www.instagram.com/selfevolution_clinica/",
     image: "/hero/13-cta.jpg",
     imageAlt: "Canto da clínica com poltrona, lamparina e luz baixa",
   } satisfies Cta,

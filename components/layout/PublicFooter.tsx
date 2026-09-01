@@ -2,6 +2,7 @@ import { Link } from "@/lib/link";
 import { Mail } from "lucide-react";
 import { publicNav } from "@/lib/navigation/public-nav";
 import { Logo } from "@/components/ui/Logo";
+import { sobreContent } from "@/lib/content/institucional";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -30,8 +31,8 @@ export function PublicFooter() {
           <div className="lg:col-span-5">
             <Logo size="md" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-content-secondary">
-              Clínica interdisciplinar de saúde mental. Cuidado que evolui com
-              você — com escuta, ciência e presença.
+              Clínica interdisciplinar. Presencial em Guarulhos e São Paulo,
+              online para todo o Brasil.
             </p>
             <div className="mt-8 flex items-center gap-3">
               <a
@@ -89,13 +90,18 @@ export function PublicFooter() {
             <ul className="mt-5 space-y-3 text-sm text-content-secondary">
               <li>
                 <a
-                  href="mailto:contato@selfevolution.com.br"
+                  href={sobreContent.contato.whatsapp}
+                  target="_blank"
+                  rel="noreferrer"
                   className="transition-colors duration-300 ease-expo hover:text-brand-primary"
                 >
-                  contato@selfevolution.com.br
+                  WhatsApp {sobreContent.contato.whatsappLabel}
                 </a>
               </li>
-              <li>Atendimento online e presencial</li>
+              {sobreContent.contato.unidades.map((unidade) => (
+                <li key={unidade}>{unidade}</li>
+              ))}
+              <li>Atendimento online em todo o Brasil</li>
             </ul>
             <div className="mt-8 flex flex-col gap-2 sm:flex-row">
               <Link

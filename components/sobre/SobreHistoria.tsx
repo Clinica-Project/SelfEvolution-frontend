@@ -58,12 +58,12 @@ export function SobreHistoria() {
             <h2 className="font-display text-[clamp(2.4rem,5.4vw,4.75rem)] font-bold leading-[0.94] tracking-[-0.04em] text-content-primary">
               <span className="block overflow-hidden pb-[0.04em]">
                 <motion.span className="block" custom={0.04} variants={reduced ? undefined : rise}>
-                  Uma clínica
+                  {historia.tituloLinhas[0]}
                 </motion.span>
               </span>
               <span className="block overflow-hidden pb-[0.04em]">
                 <motion.span className="block" custom={0.14} variants={reduced ? undefined : rise}>
-                  que conversa
+                  {historia.tituloLinhas[1]}
                 </motion.span>
               </span>
               <span className="block overflow-hidden pb-[0.04em]">
@@ -72,7 +72,7 @@ export function SobreHistoria() {
                   custom={0.24}
                   variants={reduced ? undefined : rise}
                 >
-                  entre si
+                  {historia.tituloLinhas[2]}
                 </motion.span>
               </span>
             </h2>

@@ -67,7 +67,9 @@ export function SobreCta() {
           >
             <Magnetic strength={8}>
               <a
-                href="mailto:contato@selfevolution.com.br"
+                href={cta.href}
+                target={cta.href.startsWith("http") ? "_blank" : undefined}
+                rel={cta.href.startsWith("http") ? "noreferrer" : undefined}
                 className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4 text-[15px] font-semibold text-brand-primary transition-transform duration-300 ease-expo hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 {cta.label}
@@ -78,10 +80,12 @@ export function SobreCta() {
               </a>
             </Magnetic>
             <a
-              href="mailto:contato@selfevolution.com.br"
+              href={cta.secondaryHref}
+              target="_blank"
+              rel="noreferrer"
               className="text-sm text-white/70 transition-colors duration-300 ease-expo hover:text-white"
             >
-              contato@selfevolution.com.br
+              {cta.secondaryLabel}
             </a>
           </motion.div>
         </motion.div>

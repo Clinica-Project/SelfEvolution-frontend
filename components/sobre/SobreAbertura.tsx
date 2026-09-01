@@ -27,9 +27,9 @@ export function SobreAbertura() {
 
   const title = (
     <h1 className="max-w-[11ch] font-display text-[clamp(2.8rem,8vw,6.4rem)] font-bold leading-[0.94] tracking-[-0.04em] text-white">
-      <span className="block font-light">Cuidar é</span>
-      <span className="block">um processo</span>
-      <span className="block">compartilhado</span>
+      <span className="block font-light">{hero.tituloLinhas[0]}</span>
+      <span className="block">{hero.tituloLinhas[1]}</span>
+      <span className="block font-light italic">{hero.tituloLinhas[2]}</span>
     </h1>
   );
 
