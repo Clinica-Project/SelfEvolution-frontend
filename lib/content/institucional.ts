@@ -435,6 +435,8 @@ export const servicosContent = {
     href: "https://wa.me/5511976854141",
     secondaryLabel: "Acessar sistema",
     secondaryHref: "/login",
+    image: "/hero/13-cta.jpg",
+    imageAlt: "Canto da clínica com poltrona, lamparina e luz baixa",
   } satisfies Cta,
 };
 

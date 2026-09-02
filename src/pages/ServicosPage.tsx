@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { ServicosHero } from "@/components/servicos/ServicosHero";
-import { ServicosConstelacao } from "@/components/servicos/ServicosConstelacao";
-import { ServicosGrid } from "@/components/servicos/ServicosGrid";
+import { ServicosEspecialidades } from "@/components/servicos/ServicosEspecialidades";
 import { ServicosCta } from "@/components/servicos/ServicosCta";
 import { servicosContent } from "@/lib/content/institucional";
 
@@ -17,8 +16,7 @@ export function ServicosPage() {
   return (
     <>
       <ServicosHero />
-      <ServicosConstelacao />
-      <ServicosGrid />
+      <ServicosEspecialidades />
       <ServicosCta />
     </>
   );
