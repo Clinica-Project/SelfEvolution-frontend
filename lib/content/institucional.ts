@@ -317,7 +317,7 @@ export const servicosContent = {
     eyebrow: "cuidado integrado",
     titulo: "Um plano, várias especialidades",
     descricao:
-      "Você não precisa montar o quebra-cabeça sozinho. Depois da escuta inicial, a nossa equipe indica quais serviços fazem sentido — e eles se comunicam ao longo de todo o acompanhamento.",
+      "Você não precisa montar o quebra-cabeça sozinho. Depois da escuta inicial, a nossa equipe indica quais serviços fazem sentido, e eles se comunicam ao longo de todo o acompanhamento.",
   },
   servicos: [
     {
@@ -341,7 +341,7 @@ export const servicosContent = {
       descricao:
         "Investigação aprofundada de atenção, memória, linguagem e outras funções cognitivas, com instrumentos padronizados e olhar clínico criterioso.",
       paraQuem:
-        "Quem precisa entender dificuldades de atenção, memória ou aprendizagem — por indicação médica, escolar ou busca própria da família.",
+        "Quem precisa entender dificuldades de atenção, memória ou aprendizagem, por indicação médica, escolar ou busca própria da família.",
       oQueEsperar:
         "Sessões de avaliação, análise dos resultados e devolutiva acolhedora com relatório e orientações práticas.",
       formatos: ["Presencial"],
@@ -399,7 +399,7 @@ export const servicosContent = {
       titulo: "Fonoaudiologia",
       slug: "fonoaudiologia",
       descricao:
-        "Cuidado com comunicação, linguagem, fala, voz e deglutição em todas as idades — da primeira infância ao envelhecimento.",
+        "Cuidado com comunicação, linguagem, fala, voz e deglutição em todas as idades, da primeira infância ao envelhecimento.",
       paraQuem:
         "Crianças com atrasos de fala ou linguagem, adultos com demandas de voz e pessoas com dificuldades de deglutição.",
       oQueEsperar:
@@ -416,7 +416,7 @@ export const servicosContent = {
       descricao:
         "Orientação alimentar integrada ao cuidado da clínica, respeitando a relação de cada pessoa com a comida e a rotina da família.",
       paraQuem:
-        "Quem busca reorganizar a alimentação — incluindo seletividade alimentar infantil e demandas ligadas a outras terapias em andamento.",
+        "Quem busca reorganizar a alimentação, incluindo seletividade alimentar infantil e demandas ligadas a outras terapias em andamento.",
       oQueEsperar:
         "Avaliação nutricional, plano alimentar realista e acompanhamento alinhado com as demais especialidades.",
       formatos: ["Online", "Presencial"],
