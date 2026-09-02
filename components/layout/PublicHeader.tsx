@@ -60,10 +60,10 @@ export function PublicHeader({ className }: { className?: string }) {
       >
         <div
           className={cn(
-            "pointer-events-auto mx-auto flex max-w-[68rem] items-center justify-between gap-2 rounded-full border transition-[padding,box-shadow,background-color,border-color] duration-500 ease-expo",
+            "pointer-events-auto mx-auto flex max-w-[68rem] items-center justify-between gap-2 rounded-full border transition-[padding,box-shadow,background-color,border-color,backdrop-filter] duration-500 ease-expo",
             scrolled
-              ? "border-brand-primary/10 bg-surface-card/95 py-1.5 pl-4 pr-1.5 shadow-[0_12px_40px_-18px_rgba(107,78,145,0.35)] backdrop-blur-2xl sm:pl-5"
-              : "border-white/40 bg-white/70 py-2 pl-4 pr-2 shadow-[0_8px_32px_-16px_rgba(107,78,145,0.2)] backdrop-blur-xl sm:pl-5"
+              ? "border-brand-primary/10 bg-surface-card/80 py-1 pl-4 pr-1.5 shadow-[0_12px_40px_-18px_rgba(107,78,145,0.35)] backdrop-blur-2xl sm:pl-5"
+              : "border-white/40 bg-white/70 py-2.5 pl-4 pr-2 shadow-[0_8px_32px_-16px_rgba(107,78,145,0.2)] backdrop-blur-md sm:pl-5"
           )}
         >
           <Logo size="sm" />
@@ -80,7 +80,7 @@ export function PublicHeader({ className }: { className?: string }) {
                   href={href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "relative z-10 rounded-full px-4 py-1.5 text-[13px] font-medium tracking-wide transition-colors duration-300 ease-expo",
+                    "group relative z-10 rounded-full px-4 py-1.5 text-[13px] font-medium tracking-wide transition-colors duration-300 ease-expo",
                     active
                       ? "text-brand-primary"
                       : "text-content-secondary hover:text-brand-primary"
@@ -95,6 +95,13 @@ export function PublicHeader({ className }: { className?: string }) {
                     />
                   )}
                   {label}
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "pointer-events-none absolute inset-x-4 bottom-[5px] h-px origin-left bg-brand-primary/55 transition-transform duration-500 ease-expo",
+                      active ? "scale-x-0" : "scale-x-0 group-hover:scale-x-100"
+                    )}
+                  />
                 </Link>
               );
             })}
@@ -109,7 +116,7 @@ export function PublicHeader({ className }: { className?: string }) {
             </Link>
             <Link
               href="/cadastro"
-              className="hidden rounded-full bg-brand-primary px-4 py-2 text-[13px] font-semibold text-content-inverse transition-all duration-300 ease-expo hover:bg-brand-primary-dark active:scale-[0.98] sm:inline-flex"
+              className="btn-shine relative hidden overflow-hidden rounded-full bg-brand-primary px-4 py-2 text-[13px] font-semibold text-content-inverse transition-all duration-300 ease-expo hover:bg-brand-primary-dark active:scale-[0.98] sm:inline-flex"
             >
               Cadastrar
             </Link>
@@ -192,7 +199,7 @@ export function PublicHeader({ className }: { className?: string }) {
               <Link
                 href="/cadastro"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-full bg-brand-primary py-3.5 text-center text-base font-semibold text-content-inverse"
+                className="btn-shine relative overflow-hidden rounded-full bg-brand-primary py-3.5 text-center text-base font-semibold text-content-inverse"
               >
                 Cadastrar
               </Link>

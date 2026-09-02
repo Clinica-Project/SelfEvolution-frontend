@@ -1,27 +1,25 @@
-import { PageHero } from "@/components/institucional/PageHero";
-import { ServicosDetalhadosSection } from "@/components/institucional/ServicosDetalhadosSection";
-import { PageCta } from "@/components/institucional/PageCta";
+import { useEffect } from "react";
+import { ServicosHero } from "@/components/servicos/ServicosHero";
+import { ServicosConstelacao } from "@/components/servicos/ServicosConstelacao";
+import { ServicosGrid } from "@/components/servicos/ServicosGrid";
+import { ServicosCta } from "@/components/servicos/ServicosCta";
 import { servicosContent } from "@/lib/content/institucional";
 
 export function ServicosPage() {
-  const { hero, intro, servicos, cta } = servicosContent;
+  useEffect(() => {
+    const previous = document.title;
+    document.title = servicosContent.meta.title;
+    return () => {
+      document.title = previous;
+    };
+  }, []);
 
   return (
     <>
-      <PageHero
-        eyebrow={hero.eyebrow}
-        titulo={hero.titulo}
-        subtitulo={hero.subtitulo}
-      />
-      <ServicosDetalhadosSection intro={intro} servicos={servicos} />
-      <PageCta
-        title={cta.titulo}
-        description={cta.descricao}
-        label={cta.label}
-        href={cta.href}
-        secondaryLabel={cta.secondaryLabel}
-        secondaryHref={cta.secondaryHref}
-      />
+      <ServicosHero />
+      <ServicosConstelacao />
+      <ServicosGrid />
+      <ServicosCta />
     </>
   );
 }

@@ -120,6 +120,22 @@ export default {
           from: { transform: "scaleX(0)" },
           to: { transform: "scaleX(1)" },
         },
+        "icon-pulse": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.12)" },
+        },
+        "icon-wave": {
+          "0%, 100%": { transform: "scaleY(0.4)" },
+          "50%": { transform: "scaleY(1)" },
+        },
+        "mesh-drift": {
+          "0%, 100%": { backgroundPosition: "0% 0%, 100% 20%, 40% 100%, 0% 80%" },
+          "50%": { backgroundPosition: "30% 40%, 60% 0%, 80% 50%, 20% 30%" },
+        },
+        "ripple-out": {
+          from: { transform: "scale(0)", opacity: "0.55" },
+          to: { transform: "scale(18)", opacity: "0" },
+        },
       },
       animation: {
         "float-a": "float-a 22s ease-in-out infinite",
@@ -129,6 +145,9 @@ export default {
         "scroll-hint": "scroll-hint 2s ease-in-out infinite",
         shimmer: "shimmer 2.2s linear infinite",
         "hero-progress": "hero-progress 6.5s linear forwards",
+        "icon-pulse": "icon-pulse 1.35s ease-in-out infinite",
+        "icon-wave": "icon-wave 0.9s ease-in-out infinite",
+        "mesh-drift": "mesh-drift 18s ease-in-out infinite",
       },
     },
   },

@@ -46,11 +46,16 @@ export type Publico = {
 
 export type ServicoDetalhado = {
   titulo: string;
+  slug: string;
   descricao: string;
   paraQuem: string;
   oQueEsperar: string;
   formatos: string[];
   icon: InstitucionalIconName;
+  /** Índices de especialidades que conversam com esta no diagrama. */
+  relacionados: number[];
+  image?: string;
+  imageAlt?: string;
 };
 
 export type DiferencialDetalhado = {
@@ -304,9 +309,10 @@ export const servicosContent = {
   hero: {
     eyebrow: "nossos serviços",
     titulo: "Especialidades que trabalham juntas",
+    tituloLinhas: ["Especialidades", "que trabalham", "juntas"],
     subtitulo:
       "Mente, comportamento, aprendizagem, comunicação e alimentação — cuidadas por uma equipe que conversa entre si e constrói um plano único para cada pessoa.",
-  } satisfies Hero,
+  } satisfies Hero & { tituloLinhas: [string, string, string] },
   intro: {
     eyebrow: "cuidado integrado",
     titulo: "Um plano, várias especialidades",
@@ -316,6 +322,7 @@ export const servicosContent = {
   servicos: [
     {
       titulo: "Psicologia",
+      slug: "psicologia",
       descricao:
         "Acompanhamento emocional e comportamental com escuta ativa e plano terapêutico individualizado. O processo respeita o ritmo de cada pessoa e usa abordagens baseadas em evidências.",
       paraQuem:
@@ -324,9 +331,13 @@ export const servicosContent = {
         "Sessões regulares com objetivos combinados, devolutivas claras e revisão periódica do plano terapêutico.",
       formatos: ["Online", "Presencial"],
       icon: "brain",
+      relacionados: [1, 3, 4, 5],
+      image: "/hero/07-psicologia.jpg",
+      imageAlt: "Sala de psicologia com poltrona e luz natural",
     },
     {
       titulo: "Avaliação neuropsicológica",
+      slug: "neuropsicologia",
       descricao:
         "Investigação aprofundada de atenção, memória, linguagem e outras funções cognitivas, com instrumentos padronizados e olhar clínico criterioso.",
       paraQuem:
@@ -335,9 +346,13 @@ export const servicosContent = {
         "Sessões de avaliação, análise dos resultados e devolutiva acolhedora com relatório e orientações práticas.",
       formatos: ["Presencial"],
       icon: "activity",
+      relacionados: [0, 2, 3],
+      image: "/hero/08-neuro.jpg",
+      imageAlt: "Espaço de avaliação neuropsicológica",
     },
     {
       titulo: "Reabilitação cognitiva",
+      slug: "reabilitacao",
       descricao:
         "Estimulação de funções como atenção, memória e planejamento por meio de um programa estruturado e individualizado, acompanhado de perto pela equipe.",
       paraQuem:
@@ -346,9 +361,13 @@ export const servicosContent = {
         "Plano de estímulo com metas definidas, exercícios progressivos e acompanhamento da evolução ao longo do tempo.",
       formatos: ["Online", "Presencial"],
       icon: "puzzle",
+      relacionados: [0, 1],
+      image: "/hero/09-reabilitacao.jpg",
+      imageAlt: "Atividade de reabilitação cognitiva",
     },
     {
       titulo: "Psicopedagogia",
+      slug: "psicopedagogia",
       descricao:
         "Apoio ao processo de aprendizagem, identificando como cada pessoa aprende melhor e construindo estratégias junto com a família e a escola.",
       paraQuem:
@@ -357,9 +376,13 @@ export const servicosContent = {
         "Avaliação psicopedagógica, plano de intervenção e comunicação próxima com a escola quando fizer sentido.",
       formatos: ["Online", "Presencial"],
       icon: "graduation-cap",
+      relacionados: [0, 1, 4, 5],
+      image: "/hero/10-psicopedagogia.jpg",
+      imageAlt: "Acompanhamento psicopedagógico",
     },
     {
       titulo: "Terapia ABA",
+      slug: "aba",
       descricao:
         "Intervenção baseada em análise do comportamento aplicada, voltada ao desenvolvimento de habilidades de comunicação, socialização e autonomia no dia a dia.",
       paraQuem:
@@ -368,9 +391,13 @@ export const servicosContent = {
         "Programa individualizado com metas mensuráveis, registro de evolução e orientação contínua à família.",
       formatos: ["Presencial"],
       icon: "blocks",
+      relacionados: [0, 3, 5, 6],
+      image: "/hero/11-aba.jpg",
+      imageAlt: "Sessão de terapia ABA",
     },
     {
       titulo: "Fonoaudiologia",
+      slug: "fonoaudiologia",
       descricao:
         "Cuidado com comunicação, linguagem, fala, voz e deglutição em todas as idades — da primeira infância ao envelhecimento.",
       paraQuem:
@@ -379,9 +406,13 @@ export const servicosContent = {
         "Avaliação fonoaudiológica, plano terapêutico específico e exercícios práticos para casa.",
       formatos: ["Online", "Presencial"],
       icon: "audio-lines",
+      relacionados: [0, 3, 4],
+      image: "/hero/14-fono.jpg",
+      imageAlt: "Atendimento de fonoaudiologia",
     },
     {
       titulo: "Nutrição",
+      slug: "nutricao",
       descricao:
         "Orientação alimentar integrada ao cuidado da clínica, respeitando a relação de cada pessoa com a comida e a rotina da família.",
       paraQuem:
@@ -390,6 +421,9 @@ export const servicosContent = {
         "Avaliação nutricional, plano alimentar realista e acompanhamento alinhado com as demais especialidades.",
       formatos: ["Online", "Presencial"],
       icon: "salad",
+      relacionados: [0, 4],
+      image: "/hero/15-nutricao.jpg",
+      imageAlt: "Consulta de nutrição",
     },
   ] satisfies ServicoDetalhado[],
   cta: {
@@ -397,6 +431,10 @@ export const servicosContent = {
     titulo: "Não sabe por onde começar?",
     descricao:
       "Não tem problema — é para isso que estamos aqui. Fale com a nossa equipe e vamos indicar juntos a melhor porta de entrada para o seu cuidado.",
+    label: "WhatsApp da clínica",
+    href: "https://wa.me/5511976854141",
+    secondaryLabel: "Acessar sistema",
+    secondaryHref: "/login",
   } satisfies Cta,
 };
 
