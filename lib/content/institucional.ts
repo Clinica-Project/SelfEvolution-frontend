@@ -311,7 +311,7 @@ export const servicosContent = {
     titulo: "Especialidades que trabalham juntas",
     tituloLinhas: ["Especialidades", "que trabalham", "juntas"],
     subtitulo:
-      "Mente, comportamento, aprendizagem, comunicação e alimentação — cuidadas por uma equipe que conversa entre si e constrói um plano único para cada pessoa.",
+      "Mente, comportamento, aprendizagem, comunicação e alimentação, cuidadas por uma equipe que conversa entre si e constrói um plano único para cada pessoa.",
   } satisfies Hero & { tituloLinhas: [string, string, string] },
   intro: {
     eyebrow: "cuidado integrado",
