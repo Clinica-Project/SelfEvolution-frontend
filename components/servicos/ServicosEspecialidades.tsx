@@ -97,10 +97,10 @@ export function ServicosEspecialidades() {
 
       <nav
         aria-label="Ir para uma especialidade"
-        className="sticky top-[4.75rem] z-40 border-y border-border/80 bg-surface-background/90 backdrop-blur-xl"
+        className="sticky top-[4.5rem] z-40 px-3 sm:top-[4.85rem] sm:px-5"
       >
-        <div className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-page py-2.5 max-lg:mask-fade-x lg:flex-wrap lg:overflow-visible lg:px-8">
-          {servicos.map((servico, index) => {
+        <div className="mx-auto flex max-w-[68rem] gap-1 overflow-x-auto rounded-full border border-brand-primary/10 bg-surface-card/90 px-2 py-1.5 shadow-[0_8px_32px_-16px_rgba(107,78,145,0.2)] backdrop-blur-xl max-lg:mask-fade-x lg:flex-wrap lg:justify-center lg:overflow-visible">
+          {servicos.map((servico) => {
             const id = servicoId(servico.slug);
             const isActive = activeId === id;
             return (
@@ -116,9 +116,6 @@ export function ServicosEspecialidades() {
                     : "font-medium text-content-muted hover:bg-brand-primary/10 hover:text-brand-primary"
                 )}
               >
-                <span className="mr-1.5 font-serif text-[11px] tabular-nums opacity-70">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
                 {rotulo(servico.titulo)}
               </button>
             );
@@ -168,12 +165,7 @@ function ServicoBloco({
         )}
       >
         <Reveal className="flex flex-col justify-center px-page py-14 lg:px-8 lg:py-20">
-          <p className="font-serif tabular-nums text-sm text-content-muted">
-            {String(index + 1).padStart(2, "0")}
-            <span className="mx-1.5 text-border">/</span>
-            {String(todos.length).padStart(2, "0")}
-          </p>
-          <h3 className="mt-3 font-display text-[clamp(2rem,4.2vw,3.5rem)] font-bold leading-[1.02] tracking-[-0.035em] text-content-primary">
+          <h3 className="font-display text-[clamp(2rem,4.2vw,3.5rem)] font-bold leading-[1.02] tracking-[-0.035em] text-content-primary">
             {servico.titulo}
           </h3>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-content-secondary lg:text-base">
