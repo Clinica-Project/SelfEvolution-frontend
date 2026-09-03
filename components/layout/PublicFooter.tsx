@@ -103,19 +103,15 @@ export function PublicFooter() {
               ))}
               <li>Atendimento online em todo o Brasil</li>
             </ul>
-            <div className="mt-8 flex flex-col gap-2 sm:flex-row">
-              <Link
-                href="/login"
-                className="rounded-full border border-brand-primary/20 px-4 py-2 text-center text-sm font-medium text-content-secondary transition-colors duration-300 ease-expo hover:text-brand-primary"
+            <div className="mt-8">
+              <a
+                href={sobreContent.contato.whatsapp}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex rounded-full bg-brand-primary px-4 py-2 text-center text-sm font-semibold text-content-inverse transition-colors duration-300 ease-expo hover:bg-brand-primary-dark"
               >
-                Entrar
-              </Link>
-              <Link
-                href="/cadastro"
-                className="rounded-full bg-brand-primary px-4 py-2 text-center text-sm font-semibold text-content-inverse transition-colors duration-300 ease-expo hover:bg-brand-primary-dark"
-              >
-                Cadastrar
-              </Link>
+                WhatsApp
+              </a>
             </div>
           </div>
         </div>

@@ -86,9 +86,9 @@ export type Cta = {
 const ctaPadrao: Cta = {
   titulo: "Pronto para dar o próximo passo?",
   descricao:
-    "Fale com a nossa equipe para entender qual caminho de cuidado faz sentido para você ou para quem você ama. Profissionais da clínica acessam o sistema por aqui.",
-  label: "Acessar sistema",
-  href: "/login",
+    "Fale com a nossa equipe para entender qual caminho de cuidado faz sentido para você ou para quem você ama.",
+  label: "WhatsApp da clínica",
+  href: "https://wa.me/5511976854141",
   secondaryLabel: "Falar com a clínica",
   secondaryHref: "mailto:contato@selfevolution.com.br",
 };
@@ -433,8 +433,8 @@ export const servicosContent = {
       "Não tem problema — é para isso que estamos aqui. Fale com a nossa equipe e vamos indicar juntos a melhor porta de entrada para o seu cuidado.",
     label: "WhatsApp da clínica",
     href: "https://wa.me/5511976854141",
-    secondaryLabel: "Acessar sistema",
-    secondaryHref: "/login",
+    secondaryLabel: "@selfevolution_clinica",
+    secondaryHref: "https://www.instagram.com/selfevolution_clinica/",
     image: "/hero/13-cta.jpg",
     imageAlt: "Canto da clínica com poltrona, lamparina e luz baixa",
   } satisfies Cta,

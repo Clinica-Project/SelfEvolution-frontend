@@ -6,6 +6,7 @@ import { useMounted } from "@/hooks/useMounted";
 import { getLenisInstance } from "@/lib/lenis-instance";
 import { publicNav } from "@/lib/navigation/public-nav";
 import { Logo } from "@/components/ui/Logo";
+import { sobreContent } from "@/lib/content/institucional";
 import { EASE_EXPO, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils/cn";
 
@@ -108,18 +109,15 @@ export function PublicHeader({ className }: { className?: string }) {
           </nav>
 
           <div className="flex items-center gap-1 sm:gap-1.5">
-            <Link
-              href="/login"
-              className="hidden rounded-full px-3.5 py-2 text-[13px] font-medium text-content-muted transition-colors duration-300 hover:text-brand-primary sm:inline-flex"
+            <a
+              href={sobreContent.contato.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="WhatsApp da clínica"
+              className="btn-shine relative inline-flex overflow-hidden rounded-full bg-brand-primary px-3.5 py-2 text-[13px] font-semibold text-content-inverse transition-all duration-300 ease-expo hover:bg-brand-primary-dark active:scale-[0.98] sm:px-4"
             >
-              Entrar
-            </Link>
-            <Link
-              href="/cadastro"
-              className="btn-shine relative hidden overflow-hidden rounded-full bg-brand-primary px-4 py-2 text-[13px] font-semibold text-content-inverse transition-all duration-300 ease-expo hover:bg-brand-primary-dark active:scale-[0.98] sm:inline-flex"
-            >
-              Cadastrar
-            </Link>
+              WhatsApp
+            </a>
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
@@ -189,20 +187,15 @@ export function PublicHeader({ className }: { className?: string }) {
               transition={{ duration: 0.5, delay: 0.35, ease: EASE_EXPO }}
               className="flex flex-col gap-3 pb-4"
             >
-              <Link
-                href="/login"
-                onClick={() => setMenuOpen(false)}
-                className="rounded-full border border-brand-primary/20 py-3.5 text-center text-base font-medium text-content-secondary"
-              >
-                Entrar
-              </Link>
-              <Link
-                href="/cadastro"
+              <a
+                href={sobreContent.contato.whatsapp}
+                target="_blank"
+                rel="noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="btn-shine relative overflow-hidden rounded-full bg-brand-primary py-3.5 text-center text-base font-semibold text-content-inverse"
               >
-                Cadastrar
-              </Link>
+                WhatsApp da clínica
+              </a>
             </motion.div>
           </motion.div>
         )}

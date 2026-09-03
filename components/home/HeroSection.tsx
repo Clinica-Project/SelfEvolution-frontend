@@ -77,7 +77,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative isolate h-[100svh] overflow-hidden bg-white"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-white"
     >
       <motion.div
         aria-hidden="true"
@@ -89,14 +89,18 @@ export function HeroSection() {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-white via-white/70 to-transparent lg:w-[62%]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-white via-white/70 to-white/10 lg:hidden"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[1] hidden bg-gradient-to-r from-white via-white/70 to-transparent lg:block lg:w-[62%]"
       />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-40 bg-gradient-to-t from-black/25 to-transparent"
       />
 
-      <div className="pointer-events-none relative z-[2] mx-auto flex h-full w-full max-w-7xl flex-col justify-end px-page pb-16 pt-28 lg:justify-center lg:px-8 lg:pb-20">
+      <div className="pointer-events-none relative z-[2] mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col justify-end px-page pb-24 pt-28 lg:justify-center lg:px-8 lg:pb-20">
         <div className="pointer-events-auto">
         <motion.p
           {...enter(0.15, 12)}
@@ -108,17 +112,17 @@ export function HeroSection() {
 
         <h1 className="mt-7 font-display leading-[0.95] tracking-[-0.04em] text-content-primary">
           <LineReveal delay={0.25}>
-            <span className="block text-[clamp(3rem,9vw,7.5rem)] font-light">
+            <span className="block text-[clamp(2.4rem,12vw,3rem)] font-light lg:text-[clamp(3rem,9vw,7.5rem)]">
               Cuidado
             </span>
           </LineReveal>
           <LineReveal delay={0.38}>
-            <span className="block text-[clamp(3rem,9vw,7.5rem)] font-bold">
+            <span className="block text-[clamp(2.4rem,12vw,3rem)] font-bold lg:text-[clamp(3rem,9vw,7.5rem)]">
               que evolui
             </span>
           </LineReveal>
           <LineReveal delay={0.5}>
-            <span className="mt-1 block text-[clamp(3rem,9vw,7.5rem)] font-bold text-brand-primary">
+            <span className="mt-1 block text-[clamp(2.4rem,12vw,3rem)] font-bold text-brand-primary lg:text-[clamp(3rem,9vw,7.5rem)]">
               com{" "}
               <span className="relative inline-block">
                 você
@@ -184,6 +188,9 @@ function HeroCarousel() {
       className="absolute inset-0"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onPointerDown={() => setPaused(true)}
+      onPointerUp={() => setPaused(false)}
+      onPointerCancel={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) {
@@ -209,11 +216,11 @@ function HeroCarousel() {
             opacity: { duration: reduced ? 0.2 : 1.4, ease: EASE_EXPO },
             scale: { duration: reduced ? 0 : SLIDE_MS / 1000, ease: "linear" },
           }}
-          className="absolute inset-0 z-[1] h-full w-full object-cover object-[70%_center]"
+          className="absolute inset-0 z-[1] h-full w-full object-cover object-[center_30%] lg:object-[70%_center]"
         />
       </AnimatePresence>
 
-      <div className="absolute inset-x-6 bottom-6 z-10 flex items-end gap-2 lg:inset-x-10 lg:bottom-8">
+      <div className="pointer-events-auto absolute inset-x-6 bottom-6 z-[1] flex items-end gap-2 lg:inset-x-10 lg:bottom-8">
         {SLIDES.map((slide, i) => {
           const active = i === index;
 

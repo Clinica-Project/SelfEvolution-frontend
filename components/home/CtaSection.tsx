@@ -37,7 +37,7 @@ export function CtaSection() {
     >
       <div className="relative mx-auto max-w-7xl lg:min-h-[min(36rem,82svh)]">
         <motion.div
-          className="flex flex-col justify-center px-page py-20 lg:max-w-[52%] lg:px-8 lg:py-28"
+          className="flex flex-col justify-center px-page py-14 lg:max-w-[52%] lg:px-8 lg:py-28"
           {...enter}
         >
           <h2 className="max-w-[12ch] font-display text-[clamp(2.6rem,6.4vw,5.25rem)] font-bold leading-[0.96] tracking-[-0.04em]">
@@ -87,7 +87,7 @@ export function CtaSection() {
             </Magnetic>
             <a
               href="mailto:contato@selfevolution.com.br"
-              className="text-sm text-white/70 transition-colors duration-300 ease-expo hover:text-white"
+              className="break-all text-sm text-white/70 transition-colors duration-300 ease-expo hover:text-white"
             >
               contato@selfevolution.com.br
             </a>

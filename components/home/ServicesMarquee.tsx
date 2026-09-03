@@ -8,13 +8,13 @@ export function ServicesMarquee() {
       <p className="sr-only">{marqueeTerms.join(", ")}</p>
       <div className="group mask-fade-x relative flex select-none overflow-hidden">
         <ul
-          className="flex min-w-max animate-marquee items-center gap-10 pr-10 group-hover:[animation-play-state:paused] motion-reduce:animate-none"
+          className="flex min-w-max animate-marquee items-center gap-6 pr-6 group-hover:[animation-play-state:paused] motion-reduce:animate-none lg:gap-10 lg:pr-10"
           aria-hidden="true"
         >
           {track.map((term, index) => (
             <li
               key={`${term}-${index}`}
-              className="flex items-center gap-10 font-display text-xs font-medium uppercase tracking-[0.22em] text-brand-primary/30"
+              className="flex items-center gap-6 font-display text-xs font-medium uppercase tracking-[0.22em] text-brand-primary/30 lg:gap-10"
             >
               {term}
               <span className="h-1 w-1 rounded-full bg-brand-accent-yellow/70" />

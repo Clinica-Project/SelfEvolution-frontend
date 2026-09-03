@@ -8,7 +8,7 @@ export function ManifestoSection() {
   const reduced = useReducedMotion();
 
   return (
-    <section id="sobre" className="relative bg-surface-background py-28 lg:py-40">
+    <section id="sobre" className="relative bg-surface-background py-16 lg:py-40">
       <div className="mx-auto max-w-7xl px-page lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">

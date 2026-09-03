@@ -71,7 +71,7 @@ export function DifferentialsSection() {
         className="pointer-events-none absolute left-page right-page top-0 h-px origin-left bg-brand-primary/25 lg:left-8 lg:right-8"
       />
 
-      <div className="mx-auto max-w-7xl px-page pt-28 lg:px-8 lg:pt-36">
+      <div className="mx-auto max-w-7xl px-page pt-16 lg:px-8 lg:pt-36">
         <Reveal>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-primary">
             a jornada
@@ -82,7 +82,7 @@ export function DifferentialsSection() {
         </Reveal>
       </div>
 
-      <div ref={trailRef} className="relative mx-auto max-w-7xl pb-20 lg:pb-28">
+      <div ref={trailRef} className="relative mx-auto max-w-7xl pb-14 lg:pb-28">
         <JourneyTrail
           rootRef={trailRef}
           progress={scrollYProgress}
@@ -97,7 +97,7 @@ export function DifferentialsSection() {
             return (
               <article
                 key={verb}
-                className="relative z-10 py-20 first:pt-12 lg:py-28 first:lg:pt-16"
+                className="relative z-10 py-12 first:pt-10 lg:py-28 first:lg:pt-16"
               >
                 <div className="grid w-full items-center gap-8 lg:grid-cols-12 lg:gap-14">
                   <div
@@ -109,7 +109,7 @@ export function DifferentialsSection() {
                   >
                     <p
                       aria-hidden="true"
-                      className="pointer-events-none absolute -bottom-6 left-0 z-[1] font-display text-[clamp(5rem,18vw,9rem)] font-bold leading-none tracking-[-0.07em] text-white/25 mix-blend-overlay lg:text-brand-primary/15 lg:mix-blend-normal"
+                      className="pointer-events-none absolute -bottom-6 left-0 z-[1] font-display text-6xl font-bold leading-none tracking-[-0.07em] text-white/25 mix-blend-overlay lg:text-[clamp(5rem,18vw,9rem)] lg:text-brand-primary/15 lg:mix-blend-normal"
                     >
                       {n}
                     </p>
@@ -118,7 +118,7 @@ export function DifferentialsSection() {
                       alt={alt}
                       width={width}
                       height={height}
-                      className="aspect-[16/10] h-[40vh] w-full object-cover lg:aspect-[5/4] lg:h-[min(26rem,56svh)]"
+                      className="aspect-[16/10] h-[min(14rem,38vh)] w-full object-cover lg:aspect-[5/4] lg:h-[min(26rem,56svh)]"
                       style={{ objectPosition: position }}
                       initial={reduced ? false : { scale: 1.06, opacity: 0.5 }}
                       whileInView={reduced ? undefined : { scale: 1, opacity: 1 }}

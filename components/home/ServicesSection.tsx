@@ -34,6 +34,24 @@ export function ServicesSection() {
 
       <div className="mx-auto mt-6 max-w-7xl px-page lg:mt-10 lg:px-8">
         <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="relative isolate aspect-[16/10] min-h-48 overflow-hidden lg:hidden">
+            <AnimatePresence initial={false} mode="sync">
+              <motion.img
+                key={current.image + current.imagePosition}
+                src={current.image}
+                alt=""
+                width={1122}
+                height={1402}
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ objectPosition: current.imagePosition }}
+                initial={reduced ? { opacity: 1 } : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: reduced ? 0.2 : 0.45, ease: EASE_EXPO }}
+              />
+            </AnimatePresence>
+          </div>
+
           <ol className="lg:col-span-7">
             {services.map(({ title, description }, index) => {
               const num = String(index + 1).padStart(2, "0");
@@ -43,6 +61,7 @@ export function ServicesSection() {
                 <li key={title} className="border-b border-brand-primary/10 first:border-t">
                   <button
                     type="button"
+                    aria-expanded={selected}
                     aria-pressed={selected}
                     onMouseEnter={() => setActive(index)}
                     onFocus={() => setActive(index)}
@@ -71,10 +90,10 @@ export function ServicesSection() {
                       </span>
                       <span
                         className={cn(
-                          "mt-1 block max-w-md text-sm leading-relaxed transition-opacity duration-300",
+                          "mt-1 max-w-md text-sm leading-relaxed transition-opacity duration-300",
                           selected
-                            ? "text-content-secondary opacity-100"
-                            : "text-content-muted opacity-80 lg:opacity-0 lg:group-hover:opacity-80 lg:group-focus:opacity-80"
+                            ? "block text-content-secondary opacity-100"
+                            : "hidden text-content-muted lg:block lg:opacity-0 lg:group-hover:opacity-80 lg:group-focus:opacity-80"
                         )}
                       >
                         {description}

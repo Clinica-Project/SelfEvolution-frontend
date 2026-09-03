@@ -35,14 +35,14 @@ export function SocialProofSection() {
   return (
     <section
       id="presenca"
-      className="relative isolate min-h-[100svh] overflow-hidden bg-[#1C1916] text-white"
+      className="relative isolate overflow-hidden bg-[#1C1916] text-white lg:min-h-[100svh]"
     >
       <motion.img
         src="/hero/05-espaco.jpg"
         alt="Sala de espera da clínica, com luz natural e um banco de madeira"
         width={2400}
         height={1600}
-        className="absolute inset-0 h-full w-full object-cover object-[78%_center]"
+        className="absolute inset-0 h-full w-full object-cover object-center lg:object-[78%_center]"
         initial={reduced ? false : { scale: 1.1 }}
         whileInView={reduced ? undefined : { scale: 1 }}
         viewport={{ once: true, amount: 0.2 }}
@@ -51,18 +51,22 @@ export function SocialProofSection() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-[#1C1916] from-[8%] via-[#1C1916]/70 via-[32%] to-transparent to-[70%]"
+        className="absolute inset-0 bg-gradient-to-t from-[#1C1916] via-[#1C1916]/55 to-[#1C1916]/20 lg:hidden"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-[#1C1916]/50 via-transparent to-[#1C1916]/25"
+        className="absolute inset-0 hidden bg-gradient-to-r from-[#1C1916] from-[8%] via-[#1C1916]/70 via-[32%] to-transparent to-[70%] lg:block"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 hidden bg-gradient-to-t from-[#1C1916]/50 via-transparent to-[#1C1916]/25 lg:block"
       />
 
       <motion.div
-        className="relative z-10 flex min-h-[100svh] items-center"
+        className="relative z-10 flex items-center lg:min-h-[100svh]"
         {...enter}
       >
-        <div className="mx-auto w-full max-w-7xl px-page py-28 lg:px-8 lg:py-32">
+        <div className="mx-auto w-full max-w-7xl px-page py-24 lg:px-8 lg:py-32">
           <h2 className="max-w-[11ch] font-display text-[clamp(2.75rem,7vw,5.5rem)] font-bold leading-[0.96] tracking-[-0.045em]">
             <span className="block overflow-hidden pb-[0.06em]">
               <motion.span className="block" custom={0.05} variants={reduced ? undefined : rise}>
