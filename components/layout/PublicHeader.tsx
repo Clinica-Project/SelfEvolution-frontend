@@ -6,6 +6,7 @@ import { useMounted } from "@/hooks/useMounted";
 import { getLenisInstance } from "@/lib/lenis-instance";
 import { publicNav } from "@/lib/navigation/public-nav";
 import { Logo } from "@/components/ui/Logo";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { sobreContent } from "@/lib/content/institucional";
 import { EASE_EXPO, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils/cn";
@@ -114,8 +115,9 @@ export function PublicHeader({ className }: { className?: string }) {
               target="_blank"
               rel="noreferrer"
               aria-label="WhatsApp da clínica"
-              className="btn-shine relative inline-flex overflow-hidden rounded-full bg-brand-primary px-3.5 py-2 text-[13px] font-semibold text-content-inverse transition-all duration-300 ease-expo hover:bg-brand-primary-dark active:scale-[0.98] sm:px-4"
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#2BB673] px-3.5 py-2 text-[13px] font-semibold text-white shadow-[0_8px_18px_-10px_rgba(43,182,115,0.55)] transition-all duration-300 ease-expo hover:bg-[#249E64] active:scale-[0.98] sm:px-4"
             >
+              <WhatsAppIcon className="h-[15px] w-[15px]" />
               WhatsApp
             </a>
             <button
@@ -192,8 +194,9 @@ export function PublicHeader({ className }: { className?: string }) {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="btn-shine relative overflow-hidden rounded-full bg-brand-primary py-3.5 text-center text-base font-semibold text-content-inverse"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2BB673] py-3.5 text-base font-semibold text-white shadow-[0_8px_18px_-10px_rgba(43,182,115,0.55)] transition-colors duration-300 ease-expo hover:bg-[#249E64]"
               >
+                <WhatsAppIcon className="h-5 w-5" />
                 WhatsApp da clínica
               </a>
             </motion.div>

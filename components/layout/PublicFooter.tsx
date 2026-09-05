@@ -2,6 +2,7 @@ import { Link } from "@/lib/link";
 import { Mail } from "lucide-react";
 import { publicNav } from "@/lib/navigation/public-nav";
 import { Logo } from "@/components/ui/Logo";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { sobreContent } from "@/lib/content/institucional";
 
 function InstagramIcon({ className }: { className?: string }) {
@@ -62,14 +63,6 @@ export function PublicFooter() {
               Navegação
             </p>
             <ul className="mt-5 space-y-3 text-sm">
-              <li>
-                <Link
-                  href="/"
-                  className="text-content-secondary transition-colors duration-300 ease-expo hover:text-brand-primary"
-                >
-                  Início
-                </Link>
-              </li>
               {publicNav.map(({ label, href }) => (
                 <li key={href}>
                   <Link
@@ -108,8 +101,9 @@ export function PublicFooter() {
                 href={sobreContent.contato.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex rounded-full bg-brand-primary px-4 py-2 text-center text-sm font-semibold text-content-inverse transition-colors duration-300 ease-expo hover:bg-brand-primary-dark"
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#2BB673] px-4 py-2 text-sm font-semibold text-white transition-colors duration-300 ease-expo hover:bg-[#249E64]"
               >
+                <WhatsAppIcon />
                 WhatsApp
               </a>
             </div>

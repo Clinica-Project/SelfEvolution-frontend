@@ -24,7 +24,7 @@ export const services: Service[] = [
     description:
       "Acompanhamento emocional e comportamental em todas as fases da vida.",
     icon: "brain",
-    image: "/hero/07-psicologia.jpg",
+    image: "/hero/servico-psicologia.jpg",
     imagePosition: "center",
   },
   {
@@ -39,7 +39,7 @@ export const services: Service[] = [
     title: "Reabilitação cognitiva",
     description: "Estímulo de funções cognitivas com plano individualizado.",
     icon: "puzzle",
-    image: "/hero/09-reabilitacao.jpg",
+    image: "/hero/servico-reabilitacao.jpg",
     imagePosition: "center",
   },
   {
@@ -54,14 +54,14 @@ export const services: Service[] = [
     description:
       "Intervenção baseada em evidências para habilidades do dia a dia.",
     icon: "blocks",
-    image: "/hero/11-aba.jpg",
+    image: "/hero/servico-aba.jpg",
     imagePosition: "center",
   },
   {
     title: "Fonoaudiologia",
     description: "Cuidado com comunicação, linguagem, voz e deglutição.",
     icon: "audio-lines",
-    image: "/hero/14-fono.jpg",
+    image: "/hero/servico-fono.jpg",
     imagePosition: "center",
   },
   {
@@ -111,6 +111,28 @@ export const metrics: Metric[] = [
   { value: 500, prefix: "+", label: "famílias acolhidas" },
   { value: 7, label: "especialidades integradas" },
   { value: 100, suffix: "%", label: "equipe registrada" },
+];
+
+export type ClinicLocation = {
+  id: string;
+  name: string;
+  address: string;
+  mapQuery: string;
+};
+
+export const clinicLocations: ClinicLocation[] = [
+  {
+    id: "sao-paulo",
+    name: "São Paulo",
+    address: "Rua Harmonia, 1323, loja 02, Vila Madalena",
+    mapQuery: "Rua Harmonia, 1323, Vila Madalena, São Paulo, SP, Brasil",
+  },
+  {
+    id: "guarulhos",
+    name: "Guarulhos",
+    address: "R. Abraham Lincoln, 292, Jardim Guarulhos",
+    mapQuery: "Rua Abraham Lincoln, 292, Jardim Guarulhos, Guarulhos, SP, Brasil",
+  },
 ];
 
 /** Termos exibidos no marquee da lista de especialidades. */

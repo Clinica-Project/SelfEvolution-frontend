@@ -12,7 +12,6 @@ export function ServicesSection() {
   const reduced = useReducedMotion();
   const [active, setActive] = useState(0);
   const current = services[active] ?? services[0];
-  const n = String(active + 1).padStart(2, "0");
 
   return (
     <section id="servicos" className="relative bg-white py-28 lg:py-36">
@@ -52,9 +51,8 @@ export function ServicesSection() {
             </AnimatePresence>
           </div>
 
-          <ol className="lg:col-span-7">
+          <ul className="lg:col-span-7">
             {services.map(({ title, description }, index) => {
-              const num = String(index + 1).padStart(2, "0");
               const selected = index === active;
 
               return (
@@ -67,19 +65,11 @@ export function ServicesSection() {
                     onFocus={() => setActive(index)}
                     onClick={() => setActive(index)}
                     className={cn(
-                      "group flex w-full items-baseline gap-5 py-5 text-left transition-colors duration-300 ease-expo lg:gap-8 lg:py-6",
+                      "group w-full py-5 text-left transition-colors duration-300 ease-expo lg:py-6",
                       selected ? "text-content-primary" : "text-content-muted hover:text-content-primary"
                     )}
                   >
-                    <span
-                      className={cn(
-                        "shrink-0 font-display text-sm font-semibold tabular-nums tracking-[0.12em] transition-colors duration-300",
-                        selected ? "text-brand-primary" : "text-content-muted group-hover:text-brand-primary"
-                      )}
-                    >
-                      {num}
-                    </span>
-                    <span className="min-w-0 flex-1">
+                    <span className="block min-w-0">
                       <span
                         className={cn(
                           "block font-display text-xl font-semibold tracking-[-0.02em] transition-transform duration-500 ease-expo lg:text-2xl",
@@ -103,7 +93,7 @@ export function ServicesSection() {
                 </li>
               );
             })}
-          </ol>
+          </ul>
 
           <div className="hidden lg:sticky lg:top-28 lg:col-span-5 lg:block">
             <div className="relative isolate min-h-[28rem] overflow-hidden text-content-inverse">
@@ -129,20 +119,7 @@ export function ServicesSection() {
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/10"
               />
-              <div className="relative flex min-h-[28rem] flex-col justify-between p-9 lg:p-10">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.p
-                    key={n}
-                    aria-hidden="true"
-                    initial={reduced ? false : { opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={reduced ? undefined : { opacity: 0, y: -8 }}
-                    transition={{ duration: reduced ? 0.15 : 0.45, ease: EASE_EXPO }}
-                    className="font-display text-[7rem] font-bold leading-none tracking-[-0.06em] text-white/25"
-                  >
-                    {n}
-                  </motion.p>
-                </AnimatePresence>
+              <div className="relative flex min-h-[28rem] flex-col justify-end p-9 lg:p-10">
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.div
                     key={current.title}

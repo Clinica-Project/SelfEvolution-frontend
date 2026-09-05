@@ -96,7 +96,7 @@ export function SocialProofSection() {
           {visibleMetrics[0] ? (
             <div className="mt-16 flex flex-col gap-8 sm:flex-row sm:items-end sm:gap-14">
               <motion.div custom={0.42} variants={reduced ? undefined : fade}>
-                <p className="font-serif text-[clamp(3.5rem,8vw,6rem)] font-medium leading-none tracking-[-0.05em] [font-optical-sizing:auto]">
+                <p className="font-display text-[clamp(3.5rem,8vw,6rem)] font-bold leading-none tracking-[-0.05em]">
                   <Counter
                     value={visibleMetrics[0].value}
                     prefix={visibleMetrics[0].prefix}
@@ -115,7 +115,7 @@ export function SocialProofSection() {
                 >
                   {visibleMetrics.slice(1).map((metric) => (
                     <li key={metric.label}>
-                      <span className="font-serif text-lg text-white/90 [font-optical-sizing:auto]">
+                      <span className="font-display text-lg font-semibold text-white/90">
                         {metric.prefix}
                         {metric.value}
                         {metric.suffix}

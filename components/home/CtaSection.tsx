@@ -1,7 +1,12 @@
-import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Check, Copy } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Magnetic } from "@/components/motion/Magnetic";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { sobreContent } from "@/lib/content/institucional";
 import { EASE_EXPO } from "@/lib/motion";
+
+const EMAIL = "contato@selfevolution.com.br";
 
 const rise = {
   hidden: { y: "108%" },
@@ -22,6 +27,7 @@ const fade = {
 
 export function CtaSection() {
   const reduced = useReducedMotion();
+  const [copied, setCopied] = useState(false);
   const enter = reduced
     ? {}
     : {
@@ -29,6 +35,37 @@ export function CtaSection() {
         whileInView: "visible" as const,
         viewport: { once: true, amount: 0.35 },
       };
+
+  useEffect(() => {
+    if (!copied) return;
+    const id = window.setTimeout(() => setCopied(false), 2000);
+    return () => window.clearTimeout(id);
+  }, [copied]);
+
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      return;
+    } catch {
+      /* clipboard API unavailable */
+    }
+
+    try {
+      const el = document.createElement("textarea");
+      el.value = EMAIL;
+      el.setAttribute("readonly", "");
+      el.style.position = "fixed";
+      el.style.left = "-9999px";
+      document.body.appendChild(el);
+      el.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(el);
+      setCopied(ok);
+    } catch {
+      setCopied(false);
+    }
+  }
 
   return (
     <section
@@ -69,28 +106,38 @@ export function CtaSection() {
           </motion.p>
 
           <motion.div
-            className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center"
+            className="mt-12 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:items-center"
             custom={0.5}
             variants={reduced ? undefined : fade}
           >
             <Magnetic strength={8}>
               <a
-                href="mailto:contato@selfevolution.com.br"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4 text-[15px] font-semibold text-brand-primary transition-transform duration-300 ease-expo hover:-translate-y-0.5 active:scale-[0.98]"
+                href={sobreContent.contato.whatsapp}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#2BB673] px-8 py-4 text-[15px] font-semibold text-white shadow-[0_8px_18px_-10px_rgba(43,182,115,0.55)] transition-all duration-300 ease-expo hover:-translate-y-0.5 hover:bg-[#249E64] active:scale-[0.98]"
               >
-                Fale com a clínica
-                <ArrowRight
-                  className="h-4 w-4 transition-transform duration-300 ease-expo group-hover:translate-x-0.5"
-                  aria-hidden="true"
-                />
+                <WhatsAppIcon className="h-[18px] w-[18px]" />
+                Entre em contato
               </a>
             </Magnetic>
-            <a
-              href="mailto:contato@selfevolution.com.br"
-              className="break-all text-sm text-white/70 transition-colors duration-300 ease-expo hover:text-white"
-            >
-              contato@selfevolution.com.br
-            </a>
+
+            <div className="flex min-w-0 items-center gap-2">
+              <span className="break-all text-sm text-white/70">{EMAIL}</span>
+              <button
+                type="button"
+                onClick={copyEmail}
+                title={copied ? "E-mail copiado" : "Copiar e-mail"}
+                aria-label={copied ? "E-mail copiado" : "Copiar e-mail"}
+                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/25 text-white/85 transition-colors duration-300 ease-expo hover:border-white/50 hover:bg-white/10 hover:text-white"
+              >
+                {copied ? (
+                  <Check className="h-4 w-4" aria-hidden="true" />
+                ) : (
+                  <Copy className="h-4 w-4" aria-hidden="true" />
+                )}
+              </button>
+            </div>
           </motion.div>
         </motion.div>
       </div>

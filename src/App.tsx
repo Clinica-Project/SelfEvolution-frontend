@@ -5,7 +5,6 @@ import { PublicLayout } from "@/src/layouts/PublicLayout";
 import { HomePage } from "@/src/pages/HomePage";
 import { SobrePage } from "@/src/pages/SobrePage";
 import { ServicosPage } from "@/src/pages/ServicosPage";
-import { DiferenciaisPage } from "@/src/pages/DiferenciaisPage";
 import { NotFoundPage } from "@/src/pages/NotFoundPage";
 
 function ScrollToTop() {
@@ -34,7 +33,6 @@ export function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/sobre" element={<SobrePage />} />
           <Route path="/servicos" element={<ServicosPage />} />
-          <Route path="/diferenciais" element={<DiferenciaisPage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />

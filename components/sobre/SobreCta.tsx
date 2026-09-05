@@ -1,6 +1,6 @@
-import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Magnetic } from "@/components/motion/Magnetic";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { EASE_EXPO } from "@/lib/motion";
 import { sobreContent } from "@/lib/content/institucional";
 
@@ -70,13 +70,10 @@ export function SobreCta() {
                 href={cta.href}
                 target={cta.href.startsWith("http") ? "_blank" : undefined}
                 rel={cta.href.startsWith("http") ? "noreferrer" : undefined}
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4 text-[15px] font-semibold text-brand-primary transition-transform duration-300 ease-expo hover:-translate-y-0.5 active:scale-[0.98]"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#2BB673] px-8 py-4 text-[15px] font-semibold text-white shadow-[0_8px_18px_-10px_rgba(43,182,115,0.55)] transition-all duration-300 ease-expo hover:-translate-y-0.5 hover:bg-[#249E64] active:scale-[0.98]"
               >
+                <WhatsAppIcon className="h-[18px] w-[18px]" />
                 {cta.label}
-                <ArrowRight
-                  className="h-4 w-4 transition-transform duration-300 ease-expo group-hover:translate-x-0.5"
-                  aria-hidden="true"
-                />
               </a>
             </Magnetic>
             <a
