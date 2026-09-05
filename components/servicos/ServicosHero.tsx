@@ -10,8 +10,8 @@ export function ServicosHero() {
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden bg-[#1C1916] text-white">
       <img
-        src="/hero/02-equipe.jpg"
-        alt="Equipe reunida na clínica"
+        src="/hero/servico-abertura.jpg"
+        alt="Equipe da clínica reunida à mesa, construindo o plano juntas"
         width={1600}
         height={1067}
         className="absolute inset-0 h-full w-full object-cover object-[center_38%]"
