@@ -10,11 +10,11 @@ import { EASE_EXPO } from "@/lib/motion";
 import { cn } from "@/lib/utils/cn";
 
 const FOTOS = [
-  { src: "/hero/01-escuta.jpg", alt: "Sessão de escuta com luz natural" },
-  { src: "/hero/17-acompanhar.jpg", alt: "Acompanhamento no corredor da clínica" },
-  { src: "/hero/07-psicologia.jpg", alt: "Espaço de psicologia com poltrona" },
-  { src: "/hero/03-infancia.jpg", alt: "Acompanhamento infantil" },
-  { src: "/hero/02-equipe.jpg", alt: "Equipe reunida na clínica" },
+  { src: "/hero/sobre-valor-humanizacao.jpg", alt: "Conversa de cuidado em um espaço calmo" },
+  { src: "/hero/sobre-valor-acolhimento.jpg", alt: "Gesto de acolhimento à mesa da clínica" },
+  { src: "/hero/sobre-valor-escuta.jpg", alt: "Retrato em escuta, com luz natural" },
+  { src: "/hero/sobre-valor-inclusao.jpg", alt: "Pessoas diversas na sala de espera da clínica" },
+  { src: "/hero/sobre-valor-etica.jpg", alt: "Prateleira com livros de cuidado e ética em saúde" },
 ] as const;
 
 const ease = { duration: 0.7, ease: EASE_EXPO } as const;

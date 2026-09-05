@@ -58,14 +58,6 @@ export type ServicoDetalhado = {
   imageAlt?: string;
 };
 
-export type DiferencialDetalhado = {
-  titulo: string;
-  descricao: string;
-  beneficio: string;
-  icon: InstitucionalIconName;
-  accent: string;
-};
-
 export type Hero = {
   eyebrow: string;
   titulo: string;
@@ -109,8 +101,8 @@ export const sobreContent = {
       "Nossa clínica multidisciplinar promove a integração da saúde física e mental, oferecendo um cuidado abrangente, humanizado e personalizado para o bem-estar completo de cada paciente.",
   } satisfies Hero & { tituloLinhas: [string, string, string] },
   abertura: {
-    image: "/hero/19-espaco.jpg",
-    imageAlt: "Sala da clínica com poltronas, luz da janela e um espaço em silêncio",
+    image: "/hero/sobre-abertura.jpg",
+    imageAlt: "Sala de espera da clínica com banco de madeira, luz natural e um espaço em silêncio",
   },
   historia: {
     eyebrow: "sobre nós",
@@ -123,16 +115,16 @@ export const sobreContent = {
     ],
     fotos: [
       {
-        src: "/hero/01-escuta.jpg",
-        alt: "Sessão de escuta com caderno e luz natural",
+        src: "/hero/sobre-historia-consulta.jpg",
+        alt: "Consulta à mesa, com caderno e luz natural",
       },
       {
-        src: "/hero/02-equipe.jpg",
-        alt: "Equipe interdisciplinar reunida em consulta na clínica",
+        src: "/hero/sobre-historia.jpg",
+        alt: "Equipe interdisciplinar reunida em volta da mesa",
       },
       {
-        src: "/hero/17-acompanhar.jpg",
-        alt: "Família acompanhada no corredor da clínica",
+        src: "/hero/sobre-historia-familia.jpg",
+        alt: "Adulto e criança caminhando pelo corredor da clínica",
       },
     ],
   },
@@ -159,7 +151,7 @@ export const sobreContent = {
         descricao:
           "Desenvolvimento, comportamento, linguagem e aprendizagem, com a família por perto.",
         icon: "baby",
-        image: "/hero/03-infancia.jpg",
+        image: "/hero/sobre-criancas.jpg",
         imageAlt: "Acompanhamento infantil com blocos de madeira",
       },
       {
@@ -167,32 +159,32 @@ export const sobreContent = {
         descricao:
           "Espaço para ser compreendido: menos julgamento, mais diálogo, escuta e cuidado emocional.",
         icon: "school",
-        image: "/hero/04-online.jpg",
-        imageAlt: "Atendimento em um escritório calmo, com luz baixa",
+        image: "/hero/sobre-adolescentes.jpg",
+        imageAlt: "Conversa de escuta em um espaço calmo da clínica",
       },
       {
         titulo: "Adultos",
         descricao:
           "Saúde emocional, relações e equilíbrio no dia a dia — presencial ou online, em todo o Brasil.",
         icon: "user-round",
-        image: "/hero/07-psicologia.jpg",
-        imageAlt: "Espaço de psicologia com poltrona e luz natural",
+        image: "/hero/sobre-adultos.jpg",
+        imageAlt: "Sala de conversa com duas poltronas e luz natural",
       },
       {
         titulo: "Idosos",
         descricao:
           "Avaliação neuropsicológica, estimulação cognitiva e, quando faz sentido, atendimento domiciliar.",
         icon: "hand-heart",
-        image: "/hero/08-neuro.jpg",
-        imageAlt: "Sala de avaliação neuropsicológica",
+        image: "/hero/sobre-idosos.jpg",
+        imageAlt: "Pessoa idosa em avaliação, escrevendo à mesa com luz natural",
       },
       {
         titulo: "Empresas",
         descricao:
           "Bem-estar corporativo, inclusão e saúde mental no trabalho — espaços mais conscientes e acessíveis.",
         icon: "users",
-        image: "/hero/02-equipe.jpg",
-        imageAlt: "Equipe reunida em um espaço de trabalho da clínica",
+        image: "/hero/sobre-empresas.jpg",
+        imageAlt: "Grupo em círculo em um espaço de trabalho da clínica",
       },
     ] satisfies Publico[],
   },
@@ -206,29 +198,29 @@ export const sobreContent = {
         titulo: "Escuta ativa",
         descricao:
           "Valorizamos a escuta ativa, o respeito às individualidades e a construção de um espaço seguro, acolhedor e inclusivo para cada pessoa.",
-        image: "/hero/01-escuta.jpg",
+        image: "/hero/sobre-escuta.jpg",
         imageAlt: "Sessão de escuta com caderno e luz natural",
       },
       {
         titulo: "Cuidado integral",
         descricao:
           "Unimos psicologia, neuropsicologia, ABA, fonoaudiologia, nutrição e outras especialidades para olhar a pessoa como um todo.",
-        image: "/hero/02-equipe.jpg",
-        imageAlt: "Equipe interdisciplinar reunida para construir o plano",
+        image: "/hero/sobre-integral.jpg",
+        imageAlt: "Consulta à mesa, construindo o cuidado em conjunto",
       },
       {
         titulo: "Plano personalizado",
         descricao:
           "Cada plano de cuidado respeita história, rotina e necessidades individuais — para pessoas e também para empresas.",
-        image: "/hero/16-chegar.jpg",
-        imageAlt: "Entrada da clínica, o primeiro passo de quem chega",
+        image: "/hero/sobre-plano.jpg",
+        imageAlt: "Mãos reunidas em volta do plano de cuidado",
       },
       {
         titulo: "Acompanhamento contínuo",
         descricao:
           "Trabalhamos o cuidado contínuo da saúde mental, incentivando hábitos saudáveis, equilíbrio emocional e desenvolvimento pessoal no dia a dia.",
-        image: "/hero/18-evoluir.jpg",
-        imageAlt: "Corredor da clínica, o cuidado que segue no tempo",
+        image: "/hero/sobre-acompanhamento.jpg",
+        imageAlt: "Adulto e criança caminhando pelo corredor da clínica",
       },
     ] satisfies Passo[],
   },
@@ -293,8 +285,8 @@ export const sobreContent = {
     href: "https://wa.me/5511976854141",
     secondaryLabel: "@selfevolution_clinica",
     secondaryHref: "https://www.instagram.com/selfevolution_clinica/",
-    image: "/hero/13-cta.jpg",
-    imageAlt: "Canto da clínica com poltrona, lamparina e luz baixa",
+    image: "/hero/sobre-cta.jpg",
+    imageAlt: "Mesa da clínica com lamparina, caderno e luz baixa",
   } satisfies Cta,
 };
 
@@ -332,8 +324,8 @@ export const servicosContent = {
       formatos: ["Online", "Presencial"],
       icon: "brain",
       relacionados: [1, 3, 4, 5],
-      image: "/hero/07-psicologia.jpg",
-      imageAlt: "Sala de psicologia com poltrona e luz natural",
+      image: "/hero/servico-psicologia.jpg",
+      imageAlt: "Sessão de psicologia com escuta e caderno, em luz natural",
     },
     {
       titulo: "Avaliação neuropsicológica",
@@ -362,8 +354,8 @@ export const servicosContent = {
       formatos: ["Online", "Presencial"],
       icon: "puzzle",
       relacionados: [0, 1],
-      image: "/hero/09-reabilitacao.jpg",
-      imageAlt: "Atividade de reabilitação cognitiva",
+      image: "/hero/servico-reabilitacao.jpg",
+      imageAlt: "Atividade de reabilitação cognitiva com quebra-cabeça de madeira",
     },
     {
       titulo: "Psicopedagogia",
@@ -392,8 +384,8 @@ export const servicosContent = {
       formatos: ["Presencial"],
       icon: "blocks",
       relacionados: [0, 3, 5, 6],
-      image: "/hero/11-aba.jpg",
-      imageAlt: "Sessão de terapia ABA",
+      image: "/hero/servico-aba.jpg",
+      imageAlt: "Sessão de terapia ABA com brinquedos de madeira no chão",
     },
     {
       titulo: "Fonoaudiologia",
@@ -407,8 +399,8 @@ export const servicosContent = {
       formatos: ["Online", "Presencial"],
       icon: "audio-lines",
       relacionados: [0, 3, 4],
-      image: "/hero/14-fono.jpg",
-      imageAlt: "Atendimento de fonoaudiologia",
+      image: "/hero/servico-fono.jpg",
+      imageAlt: "Atendimento de fonoaudiologia com criança e espelho à mesa",
     },
     {
       titulo: "Nutrição",
@@ -431,117 +423,11 @@ export const servicosContent = {
     titulo: "Não sabe por onde começar?",
     descricao:
       "Não tem problema — é para isso que estamos aqui. Fale com a nossa equipe e vamos indicar juntos a melhor porta de entrada para o seu cuidado.",
-    label: "WhatsApp da clínica",
+    label: "Entre em contato",
     href: "https://wa.me/5511976854141",
     secondaryLabel: "@selfevolution_clinica",
     secondaryHref: "https://www.instagram.com/selfevolution_clinica/",
     image: "/hero/13-cta.jpg",
     imageAlt: "Canto da clínica com poltrona, lamparina e luz baixa",
-  } satisfies Cta,
-};
-
-/* ------------------------------- diferenciais ------------------------------ */
-
-export const diferenciaisContent = {
-  meta: {
-    title: "Diferenciais — por que escolher a SelfEvolution",
-    description:
-      "Equipe interdisciplinar que discute os casos em conjunto, atendimento online e presencial, profissionais registrados, agilidade no primeiro contato e privacidade em cada etapa do cuidado.",
-  },
-  hero: {
-    eyebrow: "por que selfevolution",
-    titulo: "Um jeito diferente de cuidar",
-    subtitulo:
-      "Estrutura clínica com olhar humano: especialidades que conversam entre si, caminhos claros e acolhimento do primeiro contato ao acompanhamento contínuo.",
-  } satisfies Hero,
-  diferenciais: [
-    {
-      titulo: "Interdisciplinaridade de verdade",
-      descricao:
-        "Nossos profissionais discutem os casos em conjunto e constroem um plano de cuidado compartilhado — não são consultórios isolados dentro do mesmo endereço.",
-      beneficio:
-        "Você não precisa repetir sua história para cada especialista nem coordenar as terapias por conta própria.",
-      icon: "users",
-      accent: "text-brand-primary bg-brand-primary/10",
-    },
-    {
-      titulo: "Online e presencial",
-      descricao:
-        "Atendimento nos dois formatos, com a mesma qualidade clínica e critérios claros sobre o que funciona melhor em cada caso.",
-      beneficio:
-        "Flexibilidade para encaixar o cuidado na sua rotina, sem abrir mão do vínculo com a equipe.",
-      icon: "monitor-smartphone",
-      accent: "text-brand-secondary bg-brand-secondary/10",
-    },
-    {
-      titulo: "Todas as fases da vida",
-      descricao:
-        "Da primeira infância ao envelhecimento, a equipe acompanha cada etapa com a especialidade e a linguagem adequadas.",
-      beneficio:
-        "Uma família inteira pode ser cuidada no mesmo lugar, por profissionais que se comunicam entre si.",
-      icon: "heart-handshake",
-      accent: "text-brand-accent-teal bg-brand-accent-teal/15",
-    },
-    {
-      titulo: "Profissionais registrados",
-      descricao:
-        "Todos os profissionais possuem registro ativo em seus conselhos e atuam com métodos baseados em evidências.",
-      beneficio:
-        "Segurança de saber quem cuida de você — com ética, técnica e transparência.",
-      icon: "shield-check",
-      accent: "text-brand-primary bg-brand-primary/10",
-    },
-    {
-      titulo: "Primeiro contato sem burocracia",
-      descricao:
-        "Do primeiro contato à primeira sessão, o caminho é direto: você fala com a equipe, entende as opções e já sai com os próximos passos definidos.",
-      beneficio:
-        "Menos espera e menos incerteza justamente no momento em que buscar ajuda já exige coragem.",
-      icon: "calendar-check",
-      accent: "text-brand-secondary bg-brand-secondary/10",
-    },
-    {
-      titulo: "Privacidade e acolhimento",
-      descricao:
-        "Sigilo profissional em todas as etapas e um ambiente pensado para que cada pessoa se sinta segura para falar de si.",
-      beneficio:
-        "Sua história é tratada com o respeito e a confidencialidade que ela merece.",
-      icon: "lock",
-      accent: "text-brand-accent-teal bg-brand-accent-teal/15",
-    },
-  ] satisfies DiferencialDetalhado[],
-  jornada: {
-    eyebrow: "como é na prática",
-    titulo: "A jornada de quem chega até nós",
-    descricao:
-      "Diferencial bom é o que aparece no dia a dia. É assim que o cuidado acontece na SelfEvolution.",
-    passos: [
-      {
-        titulo: "Você entra em contato",
-        descricao:
-          "Por e-mail ou WhatsApp, conta brevemente o que está buscando — sem formulários intermináveis.",
-      },
-      {
-        titulo: "Escuta inicial",
-        descricao:
-          "Um profissional acolhe a sua demanda, entende o contexto e esclarece formatos, especialidades e expectativas.",
-      },
-      {
-        titulo: "Plano compartilhado",
-        descricao:
-          "A equipe discute o caso em conjunto e apresenta um plano de cuidado claro, com as especialidades indicadas.",
-      },
-      {
-        titulo: "Evolução acompanhada",
-        descricao:
-          "O progresso é registrado e revisado periodicamente — e você participa das decisões em cada etapa.",
-      },
-    ] satisfies Passo[],
-  },
-  cta: {
-    ...ctaPadrao,
-    titulo: "Venha conhecer esse jeito de cuidar",
-    descricao:
-      "Fale com a nossa equipe e experimente um cuidado que enxerga você por inteiro — do primeiro contato ao acompanhamento contínuo.",
   } satisfies Cta,
 };
