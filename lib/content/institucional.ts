@@ -82,7 +82,7 @@ const ctaPadrao: Cta = {
   label: "WhatsApp da clínica",
   href: "https://wa.me/5511976854141",
   secondaryLabel: "Falar com a clínica",
-  secondaryHref: "mailto:contato@selfevolution.com.br",
+  secondaryHref: "mailto:silvana.selfevolution@gmail.com",
 };
 
 /* ---------------------------------- sobre --------------------------------- */
@@ -152,7 +152,7 @@ export const sobreContent = {
           "Desenvolvimento, comportamento, linguagem e aprendizagem, com a família por perto.",
         icon: "baby",
         image: "/hero/sobre-criancas.jpg",
-        imageAlt: "Acompanhamento infantil com blocos de madeira",
+        imageAlt: "Criança brincando com brinquedos de madeira, acompanhada pela terapeuta",
       },
       {
         titulo: "Adolescentes",
@@ -160,7 +160,7 @@ export const sobreContent = {
           "Espaço para ser compreendido: menos julgamento, mais diálogo, escuta e cuidado emocional.",
         icon: "school",
         image: "/hero/sobre-adolescentes.jpg",
-        imageAlt: "Conversa de escuta em um espaço calmo da clínica",
+        imageAlt: "Adolescente em conversa de escuta na clínica",
       },
       {
         titulo: "Adultos",
@@ -168,7 +168,7 @@ export const sobreContent = {
           "Saúde emocional, relações e equilíbrio no dia a dia — presencial ou online, em todo o Brasil.",
         icon: "user-round",
         image: "/hero/sobre-adultos.jpg",
-        imageAlt: "Sala de conversa com duas poltronas e luz natural",
+        imageAlt: "Sessão de psicologia entre dois adultos, com poltronas e luz natural",
       },
       {
         titulo: "Idosos",
@@ -272,8 +272,14 @@ export const sobreContent = {
     whatsappLabel: "(11) 97685-4141",
     whatsappAlt: "(11) 96012-2082",
     unidades: [
-      "São Paulo — Rua Harmonia, 1323, loja 02, Vila Madalena",
-      "Guarulhos — R. Abraham Lincoln, 292, Jardim Guarulhos",
+      {
+        label: "São Paulo — Rua Harmonia, 1323, loja 02, Vila Madalena",
+        href: "/unidades/vila-madalena",
+      },
+      {
+        label: "Guarulhos — R. Abraham Lincoln, 292, Jardim Guarulhos",
+        href: "/unidades/guarulhos",
+      },
     ],
   },
   cta: {

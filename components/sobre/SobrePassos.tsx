@@ -11,6 +11,8 @@ import { cn } from "@/lib/utils/cn";
 import { useIsDesktop } from "@/components/sobre/scroll";
 
 const slideEase = { duration: 0.95, ease: EASE_EXPO } as const;
+const numberEase = [0.22, 0.61, 0.36, 1] as const;
+const numberMotion = { duration: 0.8, ease: numberEase } as const;
 
 export function SobrePassos() {
   const { jornada } = sobreContent;
@@ -159,13 +161,13 @@ export function SobrePassos() {
             <h2 className="sr-only">{jornada.titulo}</h2>
 
             <div className="overflow-hidden">
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="wait" initial={false}>
                 <motion.p
                   key={numero}
-                  initial={{ y: "70%" }}
-                  animate={{ y: "0%" }}
-                  exit={{ y: "-80%" }}
-                  transition={{ duration: 0.55, ease: EASE_EXPO }}
+                  initial={{ y: "32%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  exit={{ y: "-28%", opacity: 0 }}
+                  transition={numberMotion}
                   className="font-serif text-[clamp(4.4rem,14vw,9.5rem)] leading-[0.82] text-brand-primary/85"
                 >
                   {numero}
@@ -174,13 +176,13 @@ export function SobrePassos() {
             </div>
 
             <div className="mt-5 overflow-hidden">
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="wait" initial={false}>
                 <motion.h3
                   key={passo.titulo}
-                  initial={{ y: "110%" }}
-                  animate={{ y: "0%" }}
-                  exit={{ y: "-110%" }}
-                  transition={{ duration: 0.55, ease: EASE_EXPO }}
+                  initial={{ y: "36%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  exit={{ y: "-28%", opacity: 0 }}
+                  transition={numberMotion}
                   className="font-display text-[clamp(1.85rem,3.6vw,3.1rem)] font-bold leading-[1.05] tracking-[-0.03em] text-content-primary"
                 >
                   {passo.titulo}

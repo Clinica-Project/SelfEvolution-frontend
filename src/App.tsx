@@ -5,6 +5,8 @@ import { PublicLayout } from "@/src/layouts/PublicLayout";
 import { HomePage } from "@/src/pages/HomePage";
 import { SobrePage } from "@/src/pages/SobrePage";
 import { ServicosPage } from "@/src/pages/ServicosPage";
+import { UnidadesPage } from "@/src/pages/UnidadesPage";
+import { UnidadePage } from "@/src/pages/UnidadePage";
 import { NotFoundPage } from "@/src/pages/NotFoundPage";
 
 function ScrollToTop() {
@@ -32,6 +34,8 @@ export function App() {
         <Route element={<PublicLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/sobre" element={<SobrePage />} />
+          <Route path="/unidades" element={<UnidadesPage />} />
+          <Route path="/unidades/:slug" element={<UnidadePage />} />
           <Route path="/servicos" element={<ServicosPage />} />
         </Route>
 

@@ -6,7 +6,7 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { sobreContent } from "@/lib/content/institucional";
 import { EASE_EXPO } from "@/lib/motion";
 
-const EMAIL = "contato@selfevolution.com.br";
+const EMAIL = "silvana.selfevolution@gmail.com";
 
 const rise = {
   hidden: { y: "108%" },

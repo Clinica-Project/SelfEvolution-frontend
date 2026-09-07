@@ -79,13 +79,13 @@ function Painel({
       ) : null}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-[#1C1916] via-[#1C1916]/50 to-[#1C1916]/20"
+        className="absolute inset-0 bg-gradient-to-t from-[#1C1916] via-[#1C1916]/55 to-[#1C1916]/20"
       />
       <div className="relative z-[1] mx-auto flex h-full max-w-7xl flex-col justify-end px-page pb-16 lg:px-8 lg:pb-20">
         <p className="font-display text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[0.92] tracking-[-0.04em] text-white">
           {publico.titulo}
         </p>
-        <p className="mt-5 max-w-md text-base leading-relaxed text-white/78 lg:text-lg">
+        <p className="mt-5 max-w-md text-base leading-relaxed text-white/80 drop-shadow-[0_1px_10px_rgba(28,25,22,0.45)] lg:text-lg">
           {publico.descricao}
         </p>
       </div>

@@ -113,29 +113,7 @@ export const metrics: Metric[] = [
   { value: 100, suffix: "%", label: "equipe registrada" },
 ];
 
-export type ClinicLocation = {
-  id: string;
-  name: string;
-  address: string;
-  mapQuery: string;
-};
-
-export const clinicLocations: ClinicLocation[] = [
-  {
-    id: "sao-paulo",
-    name: "São Paulo",
-    address: "Rua Harmonia, 1323, loja 02, Vila Madalena",
-    mapQuery: "Rua Harmonia, 1323, Vila Madalena, São Paulo, SP, Brasil",
-  },
-  {
-    id: "guarulhos",
-    name: "Guarulhos",
-    address: "R. Abraham Lincoln, 292, Jardim Guarulhos",
-    mapQuery: "Rua Abraham Lincoln, 292, Jardim Guarulhos, Guarulhos, SP, Brasil",
-  },
-];
-
-/** Termos exibidos no marquee da lista de especialidades. */
+/** Termos do marquee na lista de especialidades. */
 export const marqueeTerms = [
   "Psicologia",
   "Neuropsicologia",

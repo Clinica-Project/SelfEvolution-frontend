@@ -10,6 +10,10 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { sobreContent } from "@/lib/content/institucional";
 import { EASE_EXPO, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils/cn";
+import {
+  UnidadesMobileAccordion,
+  UnidadesNavItem,
+} from "@/components/layout/UnidadesNav";
 
 const overlayItem = {
   hidden: { opacity: 0, y: 28 },
@@ -26,6 +30,7 @@ export function PublicHeader({ className }: { className?: string }) {
   const mounted = useMounted();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [unidadesOpen, setUnidadesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -50,7 +55,17 @@ export function PublicHeader({ className }: { className?: string }) {
 
   useEffect(() => {
     setMenuOpen(false);
+    setUnidadesOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!unidadesOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setUnidadesOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [unidadesOpen]);
 
   return (
     <>
@@ -62,7 +77,7 @@ export function PublicHeader({ className }: { className?: string }) {
       >
         <div
           className={cn(
-            "pointer-events-auto mx-auto flex max-w-[68rem] items-center justify-between gap-2 rounded-full border transition-[padding,box-shadow,background-color,border-color,backdrop-filter] duration-500 ease-expo",
+            "pointer-events-auto mx-auto flex max-w-[68rem] items-center justify-between gap-2 overflow-visible rounded-full border transition-[padding,box-shadow,background-color,border-color,backdrop-filter] duration-500 ease-expo",
             scrolled
               ? "border-brand-primary/10 bg-surface-card/80 py-1 pl-4 pr-1.5 shadow-[0_12px_40px_-18px_rgba(107,78,145,0.35)] backdrop-blur-2xl sm:pl-5"
               : "border-white/40 bg-white/70 py-2.5 pl-4 pr-2 shadow-[0_8px_32px_-16px_rgba(107,78,145,0.2)] backdrop-blur-md sm:pl-5"
@@ -75,7 +90,23 @@ export function PublicHeader({ className }: { className?: string }) {
             aria-label="Navegação principal"
           >
             {publicNav.map(({ label, href }) => {
-              const active = mounted && pathname === href;
+              const active =
+                mounted &&
+                (href === "/"
+                  ? pathname === "/"
+                  : pathname === href || pathname.startsWith(`${href}/`));
+
+              if (href === "/unidades") {
+                return (
+                  <UnidadesNavItem
+                    key={href}
+                    open={unidadesOpen}
+                    onOpenChange={setUnidadesOpen}
+                    active={Boolean(active)}
+                  />
+                );
+              }
+
               return (
                 <Link
                   key={href}
@@ -115,17 +146,17 @@ export function PublicHeader({ className }: { className?: string }) {
               target="_blank"
               rel="noreferrer"
               aria-label="WhatsApp da clínica"
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#2BB673] px-3.5 py-2 text-[13px] font-semibold text-white shadow-[0_8px_18px_-10px_rgba(43,182,115,0.55)] transition-all duration-300 ease-expo hover:bg-[#249E64] active:scale-[0.98] sm:px-4"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-full bg-[#2BB673] px-3.5 py-2 text-[13px] font-semibold text-white shadow-[0_8px_18px_-10px_rgba(43,182,115,0.55)] transition-all duration-300 ease-expo hover:bg-[#249E64] active:scale-[0.98] sm:px-4"
             >
               <WhatsAppIcon className="h-[15px] w-[15px]" />
-              WhatsApp
+              <span className="hidden sm:inline">WhatsApp</span>
             </a>
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
               aria-label="Abrir menu"
               aria-expanded={menuOpen}
-              className="inline-flex items-center gap-1.5 rounded-full bg-content-primary px-3.5 py-2 text-[13px] font-semibold text-content-inverse transition-colors duration-300 hover:bg-brand-primary lg:hidden"
+              className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-content-primary px-3.5 py-2 text-[13px] font-semibold text-content-inverse transition-colors duration-300 hover:bg-brand-primary lg:hidden"
             >
               Menu
               <span aria-hidden="true" className="tracking-[0.2em]">
@@ -139,7 +170,7 @@ export function PublicHeader({ className }: { className?: string }) {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-[60] flex flex-col bg-[#F8F4FC] px-page py-6 lg:hidden"
+            className="fixed inset-0 z-[60] flex flex-col bg-[#F8F4FC] px-5 pt-[max(1rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-page lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Menu de navegação"
@@ -148,7 +179,7 @@ export function PublicHeader({ className }: { className?: string }) {
             exit={reduced ? undefined : { opacity: 0, transition: { duration: 0.22 } }}
             transition={{ duration: 0.4, ease: EASE_EXPO }}
           >
-            <div className="flex items-center justify-between">
+            <div className="flex shrink-0 items-center justify-between">
               <Logo size="md" />
               <button
                 type="button"
@@ -164,21 +195,30 @@ export function PublicHeader({ className }: { className?: string }) {
               initial="hidden"
               animate="visible"
               variants={staggerContainer(0.09, 0.1)}
-              className="mt-20 flex flex-1 flex-col"
+              className="mt-8 flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain sm:mt-12"
+              data-lenis-prevent
               aria-label="Navegação principal"
             >
               {publicNav.map(({ label, href }) => (
                 <motion.div key={href} variants={overlayItem}>
-                  <Link
-                    href={href}
-                    onClick={() => setMenuOpen(false)}
-                    className={cn(
-                      "block border-b border-brand-primary/10 py-4 font-display text-[2.75rem] font-bold leading-none tracking-[-0.03em] transition-colors hover:text-brand-primary",
-                      pathname === href ? "text-brand-primary" : "text-content-primary"
-                    )}
-                  >
-                    {label}
-                  </Link>
+                  {href === "/unidades" ? (
+                    <UnidadesMobileAccordion
+                      onNavigate={() => setMenuOpen(false)}
+                    />
+                  ) : (
+                    <Link
+                      href={href}
+                      onClick={() => setMenuOpen(false)}
+                      className={cn(
+                        "block border-b border-brand-primary/10 py-4 font-display text-[clamp(2rem,9vw,2.75rem)] font-bold leading-none tracking-[-0.03em] transition-colors hover:text-brand-primary",
+                        pathname === href
+                          ? "text-brand-primary"
+                          : "text-content-primary"
+                      )}
+                    >
+                      {label}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </motion.nav>
@@ -187,7 +227,7 @@ export function PublicHeader({ className }: { className?: string }) {
               initial={reduced ? undefined : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35, ease: EASE_EXPO }}
-              className="flex flex-col gap-3 pb-4"
+              className="flex shrink-0 flex-col gap-3 pt-4"
             >
               <a
                 href={sobreContent.contato.whatsapp}
